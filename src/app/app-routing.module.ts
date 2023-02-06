@@ -7,8 +7,8 @@ import { TeamSignInPageComponent } from './team-sign-in-page/team-sign-in-page.c
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'sign-in', component: SignInPageComponent },
-  {path: 'team-sign-in', component: TeamSignInPageComponent},
+  { path: 'sign-up', component: SignInPageComponent },
+  {path: 'login', component: TeamSignInPageComponent},
 
   {path: '**', redirectTo: ''}
 ];

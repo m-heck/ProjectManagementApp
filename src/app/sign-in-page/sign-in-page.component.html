@@ -6,28 +6,11 @@
   </mat-card-header>-->
       <mat-card-content>
         <mat-tab-group color="accent">
-          <mat-tab label="Login">
-            <div class="tab">
-              <mat-form-field class="example-full-width first-input">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput placeholder="Email">
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput placeholder="Password">
-              </mat-form-field>
-              <button mat-raised-button color="accent" class="submit-button">Login</button>
-            </div>
-          </mat-tab>
           <mat-tab label="Sign Up">
             <div class="tab">
               <mat-form-field class="example-full-width first-input">
-                <mat-label>Full Name</mat-label>
-                <input type="text" matInput placeholder="Full Name">
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <mat-label>Display Name</mat-label>
-                <input type="text" matInput placeholder="Display Name">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder="Name">
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <mat-label>Phone Number</mat-label>
@@ -42,6 +25,35 @@
                 <input type="password" matInput placeholder="Password">
               </mat-form-field>
               <button mat-raised-button color="accent" class="submit-button">Sign Up</button>
+            </div>
+          </mat-tab>
+          <mat-tab label="Team Manager Sign Up">
+            <div class="tab">
+              <mat-form-field class="example-full-width first-input">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder="Name">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Phone Number</mat-label>
+                <input type="tel" matInput placeholder="Phone Number">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Email">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Password">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Team Name</mat-label>
+                <input type="text" matInput placeholder="Team Name">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-label>Team Passcode</mat-label>
+                <input type="number" matInput placeholder="Numerical Password">
+              </mat-form-field>
+              <button mat-raised-button color="accent" class="submit-button">Sign Up Team</button>
             </div>
           </mat-tab>
         </mat-tab-group>
