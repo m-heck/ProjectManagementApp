@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project-management-app';
+
+  activeButton = 'Home';
+  active(x: string) {
+    this.activeButton = x;
+  }
 }

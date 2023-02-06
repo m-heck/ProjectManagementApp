@@ -1,52 +1,48 @@
 .example-card {
-  height: 80vh;
+  height: 85vh;
   width: 500px;
 }
 
 .example-full-width {
   width: 100%;
 }
-
 // adds necessary margin
 .margin {
   margin: 15px;
 }
-
 // holds everything in this component
 .container {
   text-align: -webkit-center;
   display: flex;
   flex-direction: row;
 }
-
 // controls the main image
 .main-img {
-  height: 80vh;
+  height: 85vh;
   width: 30vw;
   object-fit: cover;
 }
   
-
 // adds space between tab and first input field
 .first-input {
   margin-top: 20px;
 }
 
-.main{
-    display: flex;
-    justify-content:center;
-    align-items:center;
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.submit-button{
-    position: absolute;
-    width: 10vw;
-    bottom: 10px;
-    display:flex;
-    left: 10vw;
+.submit-button {
+  position: absolute;
+  width: 10vw;
+  bottom: 10px;
+  display: flex;
+  left: 10vw;
 }
 
 .tab {
   overflow: hidden;
-  height: 65vh;
+  height: 75vh;
 }
