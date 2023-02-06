@@ -11,11 +11,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInPageComponent
+    SignInPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

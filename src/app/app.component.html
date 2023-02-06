@@ -1,3 +1,14 @@
-<div class="container">
-    <app-sign-in-page></app-sign-in-page>
-</div>
+<h1>Project Management App</h1>
+<nav class="navbar">
+  <div class="navbar-nav">
+    <ul>
+      <li><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
+      <li><a routerLink="/sign-in" routerLinkActive="active" ariaCurrentWhenActive="page">Sign In</a></li>
+    </ul>
+  </div>
+
+</nav>
+
+<span>
+  <router-outlet></router-outlet>
+</span>
