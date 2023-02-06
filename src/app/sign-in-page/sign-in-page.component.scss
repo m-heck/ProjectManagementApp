@@ -28,3 +28,22 @@
 .first-input {
   margin-top: 20px;
 }
+
+.main{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.submit-button{
+    position: absolute;
+    width: 10vw;
+    bottom: 10px;
+    display:flex;
+    left: 10vw;
+}
+
+.tab {
+  overflow: hidden;
+  height: 65vh;
+}

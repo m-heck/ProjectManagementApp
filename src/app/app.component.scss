@@ -9,15 +9,25 @@ $color-config: mat.get-color-config($project-management-app-theme);
 // get the chosen palette : primary
 $primary: map.get($color-config, 'primary');
 
+@mixin color($theme) {
+  .title {
+    background-color: $md-darkblue;
+  }
+}
+
 .container {
-    height: 100%;
-    width: 100%;
-    background-color: mat.get-color-from-palette($primary);
+  height: 100%;
+  width: 100%;
+  background-color: mat.get-color-from-palette($primary);
 }
 
 app-sign-in-page {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: center;
+  top: 50%;
+  left: 50%;
+  //transform: translate(-50%, -50%);
+}
+
+.title-overlay {
+  left: 0px;
 }

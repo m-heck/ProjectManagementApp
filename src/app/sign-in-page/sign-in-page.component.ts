@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './sign-in-page.component.html',
   styleUrls: ['./sign-in-page.component.scss']
 })
-export class SignInPageComponent {
 
+export class SignInPageComponent {
+  title = "Project Management App";
 }
