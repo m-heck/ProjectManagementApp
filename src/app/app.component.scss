@@ -9,12 +9,6 @@ $color-config: mat.get-color-config($project-management-app-theme);
 // get the chosen palette : primary
 $primary: map.get($color-config, 'primary');
 
-@mixin color($theme) {
-  .title {
-    background-color: $md-darkblue;
-  }
-}
-
 .container {
   height: 100%;
   width: 100%;
@@ -30,4 +24,35 @@ app-sign-in-page {
 
 .title-overlay {
   left: 0px;
+}
+
+.navbar{
+    width: 100%;
+    position: fixed;
+    justify-self: center;
+    justify-content:center;
+    z-index: 1000;
+}
+
+.pagebuttons {
+  min-height: 30px;
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  border-width: 4px;
+}
+
+// removes underline from links
+a{
+  text-decoration: none;
+}
+
+.active{
+    border-color: aqua;
 }

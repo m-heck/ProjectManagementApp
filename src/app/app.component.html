@@ -3,10 +3,9 @@
 </mat-card-header>
 <nav class="navbar">
   <div class="navbar-nav">
-    <ul>
-      <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
-      <a routerLink="/sign-in" routerLinkActive="active" ariaCurrentWhenActive="page">Sign In</a>
-    </ul>
+    <button class="pagebuttons" (click)='active("H")' [ngClass]="{'active': activeButton == 'H'}"><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></button>
+    <button class="pagebuttons" (click)='active("SI")' [ngClass]="{'active': activeButton == 'SI'}"><a routerLink="/sign-in" routerLinkActive="active" ariaCurrentWhenActive="page">Team Member Sign In</a></button>
+    <button class="pagebuttons" (click)='active("TSI")' [ngClass]="{'active': activeButton == 'TSI'}"><a routerLink="/team-sign-in" routerLinkActive="active" ariaCurrentWhenActive="page">Team Leader Sign In</a></button>
   </div>
 
 </nav>

@@ -12,12 +12,14 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { HomePageComponent } from './home-page/home-page.component';
+import { TeamSignInPageComponent } from './team-sign-in-page/team-sign-in-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    TeamSignInPageComponent
   ],
   imports: [
     BrowserModule,
