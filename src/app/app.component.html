@@ -1,15 +1,17 @@
-<mat-card-header>
-  <mat-card-title class="title-overlay title">Project Management App</mat-card-title>
-</mat-card-header>
-<nav class="navbar">
-  <div class="navbar-nav">
-    <button class="pagebuttons" (click)='active("H")' [ngClass]="{'active': activeButton == 'H'}"><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></button>
-    <button class="pagebuttons" (click)='active("SI")' [ngClass]="{'active': activeButton == 'SI'}"><a routerLink="/sign-in" routerLinkActive="active" ariaCurrentWhenActive="page">Team Member Sign In</a></button>
-    <button class="pagebuttons" (click)='active("TSI")' [ngClass]="{'active': activeButton == 'TSI'}"><a routerLink="/team-sign-in" routerLinkActive="active" ariaCurrentWhenActive="page">Team Leader Sign In</a></button>
-  </div>
-
-</nav>
-
-<span>
-  <router-outlet></router-outlet>
-</span>
+<div class="container">
+  <mat-card-header>
+    <mat-card-title class="title-overlay title">Project Management App</mat-card-title>
+  </mat-card-header>
+  <nav class="navbar">
+    <div class="navbar-nav">
+      <button class="pagebuttons" (click)='active("H")' [ngClass]="{'active': activeButton == 'H'}"><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></button>
+      <button class="pagebuttons" (click)='active("SI")' [ngClass]="{'active': activeButton == 'SI'}"><a routerLink="/sign-up" routerLinkActive="active" ariaCurrentWhenActive="page">Sign Up</a></button>
+      <button class="pagebuttons" (click)='active("TSI")' [ngClass]="{'active': activeButton == 'TSI'}"><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></button>
+    </div>
+  
+  </nav>
+  
+  <span>
+    <router-outlet></router-outlet>
+  </span>
+</div>
