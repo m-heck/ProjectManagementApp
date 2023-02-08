@@ -8,10 +8,10 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/AlanWang611/ProjectManagementApp"
+	"github.com/jcelliott/lumber"
 )
 
-const Version = "1.0.1"
+const Version = "1.16.7"
 
 type (
 	Logger interface {
@@ -45,7 +45,7 @@ func New(dir string, options *Options) (*Driver, error) {
 	}
 
 	if opts.Logger == nil {
-		opts.Logger = ProjectManagementApp.NewConsoleLogger((ProjectManagementApp.INFO))
+		opts.Logger = lumber.NewConsoleLogger((lumber.INFO))
 	}
 
 	driver := Driver{
