@@ -12,6 +12,8 @@ We wanted to set up a login page, a sign up page for general users, a sign up pa
 
 ### Backend
 
+We wanted to set up a database that stores information about a user like their name, email, and phone number. Their section of the data in the database will be reserved once they sign up and input their information. Once this is set up, it will allow for our webpage to display personalized data that are specific to the user once they login 
+
 ## Which ones were successfully completed
 ### Frontend
 
