@@ -21,9 +21,13 @@ We were able to lay out the basics of each page besides the blank homepage. We h
 
 ### Backend
 
+We we were able to successfully set up a local database that stores users information from the console into a JSON object. This JSON object with data will then be sent to the frontend to be displayed.
+
 ## Which ones didn't and why?
 ### Frontend
 
 We did not set up the route to the blank homepage because we are still planning out the different ways the user can take to reach their homepage, but plan to do this for the next sprint. Also, although we implemented the basics of each page, everything we have is filler and does not look good. We decided to focus more on getting things to show up to the screen rather than making them look good. Next sprint, we will remake each page using Angular Material rather than HTML and will replace the filler text on the info page with a better looking placeholder.
 
 ### Backend
+
+The thing we were not able to complete successfully was set up a cloud database which was what we were planning on doing originally. We thought it would be easier to first set up a local database and ensure that data can be saved locally and subsequently displayed to the frontend. Nonetheless, setting up a cloud databse is what we have planned for future sprints.
