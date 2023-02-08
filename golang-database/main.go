@@ -198,6 +198,11 @@ type User struct {
 
 // main function
 func main() {
+	var name, email, password string
+	var number json.Number
+
+	fmt.Scan(name, email, number, password)
+
 	//access directory
 	dir := "./"
 	db, err := New(dir, nil)
@@ -207,7 +212,8 @@ func main() {
 
 	//database
 	employees := []User{
-		{"Alan", "a.wang@ufl.edu", "3525141846", "IcantactaullyShowmyPasswordLOL"},
+		//{"Alan", "a.wang@ufl.edu", "3525141846", "IcantactaullyShowmyPasswordLOL"},
+		{name, email, number, password},
 	}
 
 	for _, value := range employees {
