@@ -1,3 +1,13 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import '../styles.scss';
+
+// load the color config
+$color-config: mat.get-color-config($project-management-app-theme);
+
+// get the chosen palette : primary
+$primary: map.get($color-config, 'primary');
+
 .container {
   height: 100%;
   width: 100%;
