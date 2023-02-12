@@ -1,5 +1,5 @@
 .example-card {
-  height: 85vh;
+  height: 80vh;
   width: 500px;
 }
 
@@ -12,13 +12,14 @@
 }
 // holds everything in this component
 .container {
+  margin-top: 30px;
   text-align: -webkit-center;
   display: flex;
   flex-direction: row;
 }
 // controls the main image
 .main-img {
-  height: 85vh;
+  height: 80vh;
   width: 30vw;
   object-fit: cover;
 }
@@ -44,5 +45,5 @@
 
 .tab {
   overflow: hidden;
-  height: 75vh;
+  height: 65vh;
 }

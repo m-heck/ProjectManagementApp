@@ -11,7 +11,7 @@
 
 $md-orangebrown: (
     50 : #f7eae5,
-    100 : #ebcbbf,
+    100 : #e9d4cb,
     200 : #dea894,
     300 : #d18569,
     400 : #c76a49,
@@ -78,8 +78,10 @@ $md-darkblue: (
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$project-management-app-primary: mat.define-palette($md-orangebrown, 400);
-$project-management-app-accent: mat.define-palette($md-darkblue, 500, 400, 600);
+$project-management-app-primary: mat.define-palette($md-orangebrown, 50, 400);
+$project-management-app-accent: mat.define-palette($md-darkblue, 900);
+//$project-management-app-secondary: mat.define-palette($md-orangebrown, 400);
+//$project-management-app-background: mat.define-palette($md-orangebrown, 900);
 
 // The warn palette is optional (defaults to red).
 $project-management-app-warn: mat.define-palette(mat.$red-palette);
@@ -90,7 +92,9 @@ $project-management-app-theme: mat.define-light-theme((
   color: (
     primary: $project-management-app-primary,
     accent: $project-management-app-accent,
+    //secondary: $project-management-app-secondary,
     warn: $project-management-app-warn,
+    //background: $project-management-app-background,
   )
 ));
 
