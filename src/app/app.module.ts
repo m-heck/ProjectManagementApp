@@ -13,13 +13,15 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { HomePageComponent } from './home-page/home-page.component';
 import { TeamSignInPageComponent } from './team-sign-in-page/team-sign-in-page.component';
+import { PreLoginNavbarComponent } from './pre-login-navbar/pre-login-navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInPageComponent,
     HomePageComponent,
-    TeamSignInPageComponent
+    TeamSignInPageComponent,
+    PreLoginNavbarComponent
   ],
   imports: [
     BrowserModule,
