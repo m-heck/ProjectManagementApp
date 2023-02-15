@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 
 export class SignInPageComponent {
   title = "Project Management App";
+
+  signUpButton(): void {
+    alert("You have been signed up!");
+  }
 }

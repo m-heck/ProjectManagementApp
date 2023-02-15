@@ -43,11 +43,13 @@
     position: absolute;
     width: 10vw;
     bottom: 10px;
-    display:flex;
-    left: 10vw;
+    display: block;
 }
 
 .tab {
   overflow: hidden;
   height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
