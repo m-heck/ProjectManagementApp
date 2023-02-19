@@ -1,6 +1,8 @@
 <div class="container">
-  <app-pre-login-navbar></app-pre-login-navbar>
-  
+  <span *ngIf="showComponent">
+    <app-pre-login-navbar ></app-pre-login-navbar>
+  </span>
+
   <span>
     <router-outlet></router-outlet>
   </span>
