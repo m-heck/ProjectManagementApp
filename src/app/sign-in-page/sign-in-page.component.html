@@ -28,7 +28,11 @@
                 <mat-label>Project Join Code</mat-label>
                 <input type="text" maxlength="4"  min="0" max="9999" step="1" pattern="[0-9]{4}" matInput placeholder="4 Digit Numerical Code">
               </mat-form-field>
-              <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()">Sign Up</button>
+              <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()">
+                <a routerLink="/main" routerLinkActive="active" ariaCurrentWhenActive="page">
+                  Sign Up
+                </a>
+              </button>
             </div>
           </mat-tab>
           <mat-tab label="Team Manager Sign Up">
@@ -57,7 +61,11 @@
                 <mat-label>Team Join Code</mat-label>
                 <input type="text" maxlength="4"  min="0" max="9999" step="1" pattern="[0-9]{4}" matInput placeholder="4 Digit Numerical Code">
               </mat-form-field>
-              <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()">Sign Up Team</button>
+              <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()">
+                <a routerLink = "/main" routerLinkActive="active" ariaCurrentWhenActive="page">
+                  Sign Up Team
+                </a>
+              </button>
             </div>
           </mat-tab>
         </mat-tab-group>

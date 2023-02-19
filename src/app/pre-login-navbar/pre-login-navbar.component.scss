@@ -11,80 +11,70 @@ $primary: map.get($color-config, 'primary');
 $accent: map.get($color-config, 'accent');
 //$secondary: map.get($color-config, 'secondary');
 
-
-.title-overlay {
-    left: 0px;
-  }
   
-  .navbar{
-      width: 100%;
-      position: fixed;
-      justify-self: center;
-      justify-content:center;
-      z-index: 1000;
-  }
-  
-  .pagebuttons {
-    min-height: 30px;
-    padding: 0 6px 0 6px;
-    margin: 6px 8px 6px 8px;
-    min-width: 88px;
-    border-radius: 3px;
-    font-size: 14px;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    outline: none;
-    border-width: 4px;
-  }
-  
-  // removes underline from links
-  a{
-    text-decoration: none;
-  }
-  
-  .active{
-      border-color: aqua;
-  }
-  
-  // controls separation for navbar
-  .navbar-container {
-    background-color: mat.get-color-from-palette($primary, 400);
-    height: 60px;
+.navbar{
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-  }
+    position: fixed;
+    justify-self: center;
+    justify-content:center;
+    z-index: 1000;
+}
   
-  .header-container {
-    height: 30px;
-    padding-left: 10px;
-  }
+.active{
+    border-color: aqua;
+    font-weight: bold;
+}
   
-  // manages title
-  #title {
-    color: mat.get-color-from-palette($primary, 50);
-    font-size: 30px;
-    align-self: center;
-  }
+// controls separation for navbar
+.navbar-container {
+  background-color: mat.get-color-from-palette($primary, 400);
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
   
-  // styles nav bar buttons
-  button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    color: mat.get-color-from-palette($primary, 50);
-  }
+.header-container {
+  height: 30px;
+  width: 80vw;
+  padding-left: 10px;
+}
+
+.nav-button-container {
+  height: 30px;
+  width: 15vw;
+}
   
-  // removes blue from links
-  // adjusts font size
-  a{
-    text-decoration: none;
-    color: inherit;
-    font-size: 15px;
-  }
+// manages title
+#title {
+  color: mat.get-color-from-palette($primary, 50);
+  font-size: 30px;
+  align-self: center;
+}
+  
+// styles nav bar buttons
+button {
+  min-height: 30px;
+  min-width: 100px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: mat.get-color-from-palette($primary, 50);
+}
+  
+// removes blue from links
+// adjusts font size
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 15px;
+}

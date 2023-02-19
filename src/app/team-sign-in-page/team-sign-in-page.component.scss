@@ -49,3 +49,10 @@
   flex-direction: column;
   align-items: center;
 }
+
+// removes hyperlink
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 15px;
+}

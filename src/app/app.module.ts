@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { HomePageComponent } from './home-page/home-page.component';
 import { TeamSignInPageComponent } from './team-sign-in-page/team-sign-in-page.component';
 import { PreLoginNavbarComponent } from './pre-login-navbar/pre-login-navbar.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PreLoginNavbarComponent } from './pre-login-navbar/pre-login-navbar.com
     SignInPageComponent,
     HomePageComponent,
     TeamSignInPageComponent,
-    PreLoginNavbarComponent
+    PreLoginNavbarComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,

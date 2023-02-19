@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component'
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component'
 import { TeamSignInPageComponent } from './team-sign-in-page/team-sign-in-page.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'sign-up', component: SignInPageComponent },
-  {path: 'login', component: TeamSignInPageComponent},
+  { path: 'login', component: TeamSignInPageComponent},
+  { path: 'main', component: MainPageComponent },
 
   {path: '**', redirectTo: ''}
 ];

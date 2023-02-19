@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pre-login-navbar',
