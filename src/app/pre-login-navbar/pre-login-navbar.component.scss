@@ -19,11 +19,10 @@ $accent: map.get($color-config, 'accent');
   z-index: 1000;
 }
   
-/*
 .active{
     border-color: aqua;
     font-weight: bold;
-}*/
+}
   
 // controls separation for navbar
 .navbar-container {
