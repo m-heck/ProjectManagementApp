@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in-page',
@@ -9,7 +10,14 @@ import { Component } from '@angular/core';
 export class SignInPageComponent {
   title = "Project Management App";
 
+  constructor(private _router: Router) { }
+
+
   signUpButton(): void {
+    this._router.navigate(['/main']);
     alert("You have been signed up!");
+  }
+
+  async addUser() {
   }
 }
