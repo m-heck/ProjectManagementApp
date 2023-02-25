@@ -16,10 +16,8 @@
               <mat-label>Password</mat-label>
               <input type="password" matInput placeholder="Password">
             </mat-form-field>
-            <button mat-raised-button color="accent" class="submit-button">
-              <a routerLink="/main" routerLinkActive="active" ariaCurrentWhenActive="page">
+            <button mat-raised-button color="accent" class="submit-button" (click) ="loginButton()">
                 Login
-              </a>
             </button>
           </div>
         </mat-tab>

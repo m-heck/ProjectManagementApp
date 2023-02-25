@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-sign-in-page',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class TeamSignInPageComponent {
 
+  constructor(private _router: Router) { }
+
+  loginButton(): void {
+    this._router.navigate(['/main']);
+  }
+
+  async addUser() {
+  }
 }
