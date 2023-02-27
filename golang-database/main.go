@@ -32,7 +32,7 @@ type (
 	}
 )
 
-//creating online database
+//implementing mySQL database
 
 type Options struct {
 	Logger
