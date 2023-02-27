@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Alan",
+	    "email": "a.wang@ufl.edu",
+	    "contact": 3525141846,
+	    "password": "IcantactaullyShowmyPasswordLOL"
+    },
+    {
+        "name": "Jerry",
+	    "email": "j.wang@ufl.edu",
+	    "contact": 4076164313,
+	    "password": "IcantactaullyShowmyPasswordLOL"
+    },
+    {
+        "name": "Max",
+	    "email": "m.huang@ufl.edu",
+	    "contact": 3523426677,
+	    "password": "IcantactaullyShowmyPasswordLOL"
+    },
+    {
+        "name": "Maren",
+	    "email": "m.heck@ufl.edu",
+	    "contact": 3525556789,
+	    "password": "IcantactaullyShowmyPasswordLOL"
+    },
+    {
+        "name": "Tan",
+	    "email": "t.dao@ufl.edu",
+	    "contact": 4079294312,
+	    "password": "IcantactaullyShowmyPasswordLOL"
+    }
+]

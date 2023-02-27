@@ -1,4 +1,12 @@
 import { Component } from '@angular/core';
+import usersData from '../../../golang-database/users/users.json'
+
+interface User {
+  name: String,
+  email: String,
+  contact: Number,
+  password: String
+}
 
 @Component({
   selector: 'app-home-page',
@@ -6,5 +14,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
+  name = 'Angular';
 
+  users: User[] = usersData;
 }
