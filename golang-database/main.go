@@ -32,6 +32,8 @@ type (
 	}
 )
 
+//creating online database
+
 type Options struct {
 	Logger
 }
