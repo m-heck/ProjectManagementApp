@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import usersData from '../../../golang-database/users/users.json'
 
 interface User {
+  username: String,
   name: String,
   email: String,
-  contact: Number,
+  contact: String,
   password: String
 }
 
