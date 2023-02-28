@@ -1,70 +1,70 @@
 <div class="container main">
-    <img class="main-img" src="../../assets/main-img.webp">
-    <mat-card class="example-card">
-      <!--<mat-card-header>
-      <mat-card-title class="margin">{{title}}</mat-card-title>
-  </mat-card-header>-->
-      <mat-card-content>
-        <mat-tab-group color="accent">
-          <mat-tab label="Sign Up">
-            <div class="tab">
-              <mat-form-field color="accent" class="example-full-width first-input">
-                <mat-label>Name</mat-label>
-                <input type="text" color="accent" matInput placeholder="Name">
-              </mat-form-field>
-              <mat-form-field color="accent" class="example-full-width">
-                <mat-label>Phone Number</mat-label>
-                <input type="tel" matInput placeholder="Phone Number">
-              </mat-form-field>
-              <mat-form-field color="accent" class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput placeholder="Email">
-              </mat-form-field>
-              <mat-form-field color="accent" class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput placeholder="Password">
-              </mat-form-field>
-              <mat-form-field color="accent" class="example-full-width">
-                <mat-label>Project Join Code</mat-label>
-                <input type="text" maxlength="4"  min="0" max="9999" step="1" pattern="[0-9]{4}" matInput placeholder="4 Digit Numerical Code">
-              </mat-form-field>
-              <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()">
-                Sign Up
-              </button>
-            </div>
-          </mat-tab>
-          <mat-tab label="Team Manager Sign Up">
-            <div class="tab">
-              <mat-form-field color="accent" class="example-full-width first-input">
-                <mat-label>Name</mat-label>
-                <input type="text" matInput placeholder="Name">
-              </mat-form-field>
-              <mat-form-field color="accent" class="example-full-width">
-                <mat-label>Phone Number</mat-label>
-                <input type="tel" matInput placeholder="Phone Number">
-              </mat-form-field>
-              <mat-form-field color="accent" class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput placeholder="Email">
-              </mat-form-field>
-              <mat-form-field color="accent" class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput placeholder="Password">
-              </mat-form-field>
-              <mat-form-field color="accent" class="example-full-width">
-                <mat-label>Team Name</mat-label>
-                <input type="text" matInput placeholder="Team Name">
-              </mat-form-field>
-              <mat-form-field color="accent" class="example-full-width">
-                <mat-label>Team Join Code</mat-label>
-                <input type="text" maxlength="4"  min="0" max="9999" step="1" pattern="[0-9]{4}" matInput placeholder="4 Digit Numerical Code">
-              </mat-form-field>
-              <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()">
-                Sign Up
-              </button>
-            </div>
-          </mat-tab>
-        </mat-tab-group>
-      </mat-card-content>
-    </mat-card>
+  <img class="main-img" src="../../assets/main-img.webp">
+  <mat-card class="example-card">
+    <!--<mat-card-header>
+        <mat-card-title class="margin">{{title}}</mat-card-title>
+    </mat-card-header>-->
+    <mat-card-content>
+      <mat-tab-group color="accent">
+        <mat-tab label="Sign Up">
+          <div class="tab">
+            <mat-form-field color="accent" class="example-full-width first-input">
+              <mat-label>Name</mat-label>
+              <input type="text" color="accent" matInput placeholder="Name">
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Phone Number</mat-label>
+              <input type="tel" matInput placeholder="Phone Number">
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="Email">
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input type="password" matInput placeholder="Password">
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Project Join Code</mat-label>
+              <input type="text" maxlength="4" min="0" max="9999" step="1" pattern="[0-9]{4}" matInput placeholder="4 Digit Numerical Code">
+            </mat-form-field>
+            <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()">
+              Sign Up
+            </button>
+          </div>
+        </mat-tab>
+        <mat-tab label="Team Manager Sign Up">
+          <div class="tab">
+            <mat-form-field color="accent" class="example-full-width first-input">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Name" (input)="name = $event.target.value">
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Phone Number</mat-label>
+              <input type="tel" matInput placeholder="Phone Number" [(ngModel)]="phone">
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="Email" [(ngModel)]="email">
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input type="password" matInput placeholder="Password" [(ngModel)]="password">
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Team Name</mat-label>
+              <input type="text" matInput placeholder="Team Name" [(ngModel)]="tname">
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Team Join Code</mat-label>
+              <input type="text" maxlength="4" min="0" max="9999" step="1" pattern="[0-9]{4}" matInput placeholder="4 Digit Numerical Code" [(ngModel)]="code">
+            </mat-form-field>
+            <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()">
+              Sign Up
+            </button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
 </div>

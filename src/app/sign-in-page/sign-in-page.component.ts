@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService, User } from '../data.service';
+//import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in-page',
@@ -8,16 +10,40 @@ import { Router } from '@angular/router';
 })
 
 export class SignInPageComponent {
-  title = "Project Management App";
 
-  constructor(private _router: Router) { }
+  constructor(private service: DataService, private _router: Router) { }
+
+  public name: string = '';
+  public phone: string = '';
+  public email: string = '';
+  public password: string = '';
+  public tname: string = '';
+  public code: string = '';
 
 
-  signUpButton(): void {
-    this._router.navigate(['/main']);
+  signUpButton() {
+    this.service.submitUser(this.name, this.phone, this.email, this.password, this.code).subscribe(
+      response => {
+        console.log('API response to submitUser:', response);
+      },
+      error => {
+        console.error('API error to submitUser:', error);
+      }
+    );
+    this.service.submitTeam(this.tname, this.code).subscribe(
+      response => {
+        console.log('API response to submitTeam:', response);
+      },
+      error => {
+        console.error('API error to submitTeam:', error);
+      }
+    );
+
+    if (this.name == 'Max') {
+      this._router.navigate(['/main']);
+    }
     alert("You have been signed up!");
   }
 
-  async addUser() {
-  }
+
 }

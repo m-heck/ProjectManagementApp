@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { TeamSignInPageComponent } from './team-sign-in-page/team-sign-in-page.component';
 import { PreLoginNavbarComponent } from './pre-login-navbar/pre-login-navbar.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,11 @@ import { MainPageComponent } from './main-page/main-page.component';
     MatCardModule,
     MatTabsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
