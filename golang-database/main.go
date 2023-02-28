@@ -204,6 +204,7 @@ func main() {
 	var number json.Number
 
 	fmt.Scan(name, email, number, password)
+	fmt.Print(name)
 
 	//access directory
 	dir := "./"
@@ -244,13 +245,13 @@ func main() {
 		allusers = append(allusers, employeeFound)
 	}
 	fmt.Println(allusers)
+
 	/*
-		if err := db.Delete("user", "john")l err != nil{
+		if err := db.Delete("users", "Alan"); err != nil{
 			fmt.Println("Error", err)
 		}
-		if err := db.Delete("user",""); err != nil{
+		if err := db.Delete("users","newUsers"); err != nil{
 			fmt.Println("Error",err)
-			}
-	*/
+		}*/
 
 }
