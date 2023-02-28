@@ -37,7 +37,7 @@
           <div class="tab">
             <mat-form-field color="accent" class="example-full-width first-input">
               <mat-label>Name</mat-label>
-              <input matInput placeholder="Name" (input)="name = $event.target.value">
+              <input matInput placeholder="Name" [(ngModel)]="name">
             </mat-form-field>
             <mat-form-field color="accent" class="example-full-width">
               <mat-label>Phone Number</mat-label>

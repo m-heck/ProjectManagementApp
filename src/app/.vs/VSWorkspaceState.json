@@ -1,11 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\home-page",
     "\\main-page",
     "\\pre-login-navbar",
     "\\sign-in-page",
     "\\team-sign-in-page"
   ],
-  "SelectedNode": "\\sign-in-page\\sign-in-page.component.ts",
+  "SelectedNode": "\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService, User } from '../data.service';
+import { DataService } from '../data.service';
 //import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -39,9 +39,9 @@ export class SignInPageComponent {
       }
     );
 
-    if (this.name == 'Max') {
+    //if (this.name == 'Max') {
       this._router.navigate(['/main']);
-    }
+    //}
     alert("You have been signed up!");
   }
 
