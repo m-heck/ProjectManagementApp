@@ -8,14 +8,13 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 
 export class AppComponent {
-  title = 'project-management-app';
 
   showComponent = true;
   constructor(private router: Router) {
     // used to turn off pre-login-navbar after login
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.showComponent = !router.url.startsWith('/main'); 
+        this.showComponent = !router.url.startsWith('/main');
       }
     });
   }
