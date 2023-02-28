@@ -17,14 +17,15 @@ describe('PreLoginNavbarComponent', () => {
 
         cy.get('#home').click()
         cy.wait(150);
-        cy.get('#home a').should('have.attr', 'routerLinkActive', 'active')
+        cy.get('#home').should('have.attr', 'routerLinkActive', 'active')
 
         cy.get('#signup').click()
         cy.wait(150);
-        cy.get('#signup a').should('have.attr', 'routerLinkActive', 'active')
+        cy.get('#signup').should('have.attr', 'routerLinkActive', 'active')
 
         cy.get('#login').click()
         cy.wait(150);
-        cy.get('#login a').should('have.attr', 'routerLinkActive', 'active')
+        cy.get('#login').should('have.attr', 'routerLinkActive', 'active')
+        cy.get('#home').should('have.attr', 'routerLinkActive', 'active') // checks that links that shouldn't be active aren't
     })
 })
