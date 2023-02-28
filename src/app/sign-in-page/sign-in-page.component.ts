@@ -1,7 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
-//import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in-page',
@@ -11,17 +10,34 @@ import { DataService } from '../data.service';
 
 export class SignInPageComponent {
 
-  constructor(private service: DataService, private _router: Router) { }
+  public name: string;
+  public phone: string;
+  public email: string;
+  public password: string;
+  public tname: string;
+  public code: string;
 
-  public name: string = '';
-  public phone: string = '';
-  public email: string = '';
-  public password: string = '';
-  public tname: string = '';
-  public code: string = '';
+  constructor(private service: DataService, private _router: Router) { }
 
 
   signUpButton() {
+    this.service.submitUser(this.name, this.phone, this.email, this.password, this.code).subscribe(
+      response => {
+        console.log('API response to submitUser:', response);
+      },
+      error => {
+        console.error('API error to submitUser:', error);
+      }
+    );
+
+    if (true) {
+      this._router.navigate(['/main']);
+    }
+    const message = this.name + " has been signed up!";
+    alert(message);
+  }
+
+  teamSignUpButton() {
     this.service.submitUser(this.name, this.phone, this.email, this.password, this.code).subscribe(
       response => {
         console.log('API response to submitUser:', response);
@@ -39,10 +55,10 @@ export class SignInPageComponent {
       }
     );
 
-    //if (this.name == 'Max') {
-      this._router.navigate(['/main']);
-    //}
-    alert("You have been signed up!");
+    this._router.navigate(['/main']);
+
+    const message = this.name + " has been signed up!";
+    alert(message);
   }
 
 

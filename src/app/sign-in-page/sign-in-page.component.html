@@ -10,23 +10,23 @@
           <div class="tab">
             <mat-form-field color="accent" class="example-full-width first-input">
               <mat-label>Name</mat-label>
-              <input type="text" color="accent" matInput placeholder="Name">
+              <input type="text" color="accent" matInput placeholder="Name" [(ngModel)]='name'>
             </mat-form-field>
             <mat-form-field color="accent" class="example-full-width">
               <mat-label>Phone Number</mat-label>
-              <input type="tel" matInput placeholder="Phone Number">
+              <input type="tel" matInput placeholder="Phone Number" [(ngModel)]='phone'>
             </mat-form-field>
             <mat-form-field color="accent" class="example-full-width">
               <mat-label>Email</mat-label>
-              <input type="email" matInput placeholder="Email">
+              <input type="email" matInput placeholder="Email" [(ngModel)]="email">
             </mat-form-field>
             <mat-form-field color="accent" class="example-full-width">
               <mat-label>Password</mat-label>
-              <input type="password" matInput placeholder="Password">
+              <input type="password" matInput placeholder="Password" [(ngModel)]="password">
             </mat-form-field>
             <mat-form-field color="accent" class="example-full-width">
               <mat-label>Project Join Code</mat-label>
-              <input type="text" maxlength="4" min="0" max="9999" step="1" pattern="[0-9]{4}" matInput placeholder="4 Digit Numerical Code">
+              <input type="text" maxlength="4" min="0" max="9999" step="1" pattern="[0-9]{4}" matInput placeholder="4 Digit Numerical Code" [(ngModel)]="code">
             </mat-form-field>
             <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()">
               Sign Up
@@ -37,11 +37,11 @@
           <div class="tab">
             <mat-form-field color="accent" class="example-full-width first-input">
               <mat-label>Name</mat-label>
-              <input matInput placeholder="Name" [(ngModel)]="name">
+              <input matInput type="text" placeholder="Name" [(ngModel)]='name'>
             </mat-form-field>
             <mat-form-field color="accent" class="example-full-width">
               <mat-label>Phone Number</mat-label>
-              <input type="tel" matInput placeholder="Phone Number" [(ngModel)]="phone">
+              <input type="tel" matInput placeholder="Phone Number" [(ngModel)]='phone'>
             </mat-form-field>
             <mat-form-field color="accent" class="example-full-width">
               <mat-label>Email</mat-label>
@@ -59,7 +59,7 @@
               <mat-label>Team Join Code</mat-label>
               <input type="text" maxlength="4" min="0" max="9999" step="1" pattern="[0-9]{4}" matInput placeholder="4 Digit Numerical Code" [(ngModel)]="code">
             </mat-form-field>
-            <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()">
+            <button mat-raised-button color="accent" class="submit-button" (click)="teamSignUpButton()">
               Sign Up
             </button>
           </div>
