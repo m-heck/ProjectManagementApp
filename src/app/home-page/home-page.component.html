@@ -4,5 +4,31 @@
   <img id="home-img" src="../../assets/home-img-2.jpeg">
   <div class="content">
     <p> We can write stuff here </p>
+
+    <div class = "container">
+
+      <h1>Displaying the user data from the json</h1>
+
+      <table class ="table table-striped">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Password</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.contact }}</td>
+          <td>{{ user.password }}</td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
   </div>
 </div>
