@@ -8,6 +8,8 @@ First, we made many changes to how the application looks. For our previous sprin
   - Removing out unecessary fields and adding new ones
 - Fixing uneven centering and inconsistent spacing across devices
 - Fixing bugs from last sprint (such as unclickable buttons)
+- Bringing the user to a blank mainpage after clicking login
+  - Started putting a few elements on the mainpage
 
 In order to plan out how the rest of the app, the frontend team met up and created a mockup of how we want the app to look like. 
 
@@ -19,7 +21,7 @@ Finally, we worked on integrating the frontend with the backend alongside the ba
 
 ### Backend
 # 2. List unit tests and Cypress test for frontend
-### First Cypress Test: PreLoginNavbarComponent
+### First Cypress Test: signOutButton() function, MainPage Component
 Checks whether the signout button, when clicked, correctly logs the user out by bringing them back to the homepage rather than their personalized mainpage.
 ```
 describe('PreLoginNavbarComponent', () => {
@@ -33,7 +35,7 @@ describe('PreLoginNavbarComponent', () => {
 })
 ```
 We decided to conduct other unit tests for the frontend using Cypress as well
-### PreLoginNavbarComponent Unit Test
+### Unit Test: active() function, PreLoginNavbar Component
 Tests whether the pre-login navigation bar component works correctly. First, it mounts the component and grabs the containers in the navigation bar. Then, it checks that the containers are correct for each of the three functions we wanted the navigation bar to serve (Home, Login, and Sign Up). Next, it simulates clicking each of these buttons and checks whether the attribute "active" has been correctly applied to the right button. Finally, it checks that buttons which should not be active don't ahve the "active" attribute.
 ```
 describe('PreLoginNavbarComponent', () => {
@@ -55,7 +57,7 @@ describe('PreLoginNavbarComponent', () => {
     })
 })
 ```
-### TeamSignInPageComponent Unit Test
+### Unit Test: loginButton() function, TeamSignInPage Component
 Simple test that checks that the correct login button is displayed to the login page rather than the submit button.
 ```
 describe('TeamSignInPageComponent', () => {
