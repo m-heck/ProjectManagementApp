@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from '../data.service';
+//import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-team-sign-in-page',
@@ -12,9 +12,10 @@ export class TeamSignInPageComponent {
   public password: string = '';
   public email: string = '';
 
-  constructor(private _router: Router, private service: DataService) { }
+  constructor(private _router: Router) { }
 
   loginButton(): void {
+    /*
     this.service.userLogin(this.email, this.password).subscribe(
       response => {
         console.log('API response to submitUser:', response);
@@ -22,7 +23,7 @@ export class TeamSignInPageComponent {
       error => {
         console.error('API error to submitUser:', error);
       }
-    );
+    );*/
 
     // should check if this is a valid login
     var valid: boolean = true;
