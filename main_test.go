@@ -32,14 +32,30 @@ func TestGetUsers(t *testing.T) {
 
 	// check that the response body is a JSON-encoded representation of the users variable
 	expected := `[
-	{
-		"username": "gatoralanw",
-		"name": "Alan",
-		"email": "a.wang@ufl.edu",
-		"contact": "3525141846",
-		"password": "IcantactaullyShowmyPasswordLOL",
-		"project": false
-	}
+		{
+			"username": "gatoralanw",
+			"name": "Alan",
+			"email": "a.wang@ufl.edu",
+			"contact": "3525141846",
+			"password": "IcantactaullyShowmyPasswordLOL",
+			"project": false
+		},
+		{
+			"username": "TossTheNoodles",
+			"name": "Jerry",
+			"email": "j.wang@ufl.edu",
+			"contact": "4076164313",
+			"password": "IcantactaullyShowmyPasswordLOL",
+			"project": false
+		},
+		{
+			"username": "Makshiboi",
+			"name": "Max",
+			"email": "m.huang@ufl.edu",
+			"contact": "3523426677",
+			"password": "IcantactaullyShowmyPasswordLOL",
+			"project": false
+		}
 ]`
 	if rr.Body.String() != expected {
 		t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
