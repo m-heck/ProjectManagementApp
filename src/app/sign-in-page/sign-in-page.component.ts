@@ -23,7 +23,7 @@ export class SignInPageComponent {
   constructor(private service: DataService, private _router: Router) { }
   */
 
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, private service: DataService, private _router: Router){
 
 
   }
@@ -34,6 +34,9 @@ export class SignInPageComponent {
     .subscribe((res) => {
       console.log(res);
     });
+    this._router.navigate(['/main']);
+    const message = users.name + " has been signed up!";
+    alert(message);
   }
   /*
   signUpButton() {
