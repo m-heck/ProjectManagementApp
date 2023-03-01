@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 //import { FormsModule } from '@angular/forms';

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class DataService {
   constructor(private http: HttpClient) { }
-  url = '../../golang-database/users/newUsers';
+  url = '../../golang-database/users/newUsers.json';
   //url = '/newUsers';
   //url = 'http://localhost:3000/project-management-app';
 
@@ -23,6 +23,14 @@ export class DataService {
     const data = {
       name: tname,
       code: code
+    };
+    return this.http.post(this.url, data);
+  }
+
+  userLogin(email: string, password: string) {
+    const data = {
+      email: email,
+      password: password
     };
     return this.http.post(this.url, data);
   }
