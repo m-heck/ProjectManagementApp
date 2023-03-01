@@ -19,6 +19,52 @@ Finally, we worked on integrating the frontend with the backend alongside the ba
 
 ### Backend
 # 2. List unit tests and Cypress test for frontend
+### First Cypress Test: PreLoginNavbarComponent
+Checks whether the signout button, when clicked, correctly logs the user out by bringing them back to the homepage rather than their personalized mainpage.
+```
+describe('PreLoginNavbarComponent', () => {
+    it('Does the signout button correctly signout and display the homepage content again', () => {
+        cy.mount(MainPageComponent, {});
+        cy.get('#signoutbutton').click();
+        cy.wait(150);
+        cy.mount(HomePageComponent, {});
+        cy.get('#home-content').should('be.visible');
+    })
+})
+```
+We decided to conduct other unit tests for the frontend using Cypress as well
+### PreLoginNavbarComponent Unit Test
+Tests whether the pre-login navigation bar component works correctly. First, it mounts the component and grabs the containers in the navigation bar. Then, it checks that the containers are correct for each of the three functions we wanted the navigation bar to serve (Home, Login, and Sign Up). Next, it simulates clicking each of these buttons and checks whether the attribute "active" has been correctly applied to the right button. Finally, it checks that buttons which should not be active don't ahve the "active" attribute.
+```
+describe('PreLoginNavbarComponent', () => {
+    it('Should display itself and its links', () => {
+        cy.mount(PreLoginNavbarComponent, {});
+        cy.get('.nav-button-container').contains('Home');
+        cy.get('.nav-button-container').contains('Login');
+        cy.get('.nav-button-container').contains('Sign Up');
+        cy.get('#home').click();
+        cy.wait(150);
+        cy.get('#home').should('have.attr', 'routerLinkActive', 'active');
+        cy.get('#signup').click();
+        cy.wait(150);
+        cy.get('#signup').should('have.attr', 'routerLinkActive', 'active');
+        cy.get('#login').click();
+        cy.wait(150);
+        cy.get('#login').should('have.attr', 'routerLinkActive', 'active');
+        cy.get('#home').should('have.attr', 'routerLinkActive', 'active');
+    })
+})
+```
+### TeamSignInPageComponent
+Simple test that checks that the correct login button is displayed to the login page rather than the submit button.
+```
+describe('TeamSignInPageComponent', () => {
+    it('Checks that the login button rather than the submit button is displayed', () => {
+        cy.mount(TeamSignInPageComponent, {});
+        cy.get('#loginbutton').contains('Login');
+        cy.get('#loginbutton').contains('Submit').should('not.exist');
+    })
+})
+```
 # 3. List unit tests for backend
-# 4. Add documentation for your backend API 
-# Video Submission
+# 4. Add documentation for your backend API
