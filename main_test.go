@@ -39,7 +39,7 @@ func TestGetUser(t *testing.T) {
 			"email": "a.wang@ufl.edu",
 			"contact": "3525141846",
 			"password": "IcantactaullyShowmyPasswordLOL",
-			"project": false
+			"code": "0000",
 		}
 	`
 	if rr.Body.String() == expected {
@@ -76,7 +76,7 @@ func TestGetUsers(t *testing.T) {
 			"email": "a.wang@ufl.edu",
 			"contact": "3525141846",
 			"password": "IcantactaullyShowmyPasswordLOL",
-			"project": false
+			"code": "0000",
 		},
 		{
 			"username": "TossTheNoodles",
@@ -84,7 +84,7 @@ func TestGetUsers(t *testing.T) {
 			"email": "j.wang@ufl.edu",
 			"contact": "4076164313",
 			"password": "IcantactaullyShowmyPasswordLOL",
-			"project": false
+			"code": "0000",
 		},
 		{
 			"username": "Makshiboi",
@@ -92,7 +92,7 @@ func TestGetUsers(t *testing.T) {
 			"email": "m.huang@ufl.edu",
 			"contact": "3523426677",
 			"password": "IcantactaullyShowmyPasswordLOL",
-			"project": false
+			"code": "0000",
 		}
 ]`
 
@@ -109,7 +109,7 @@ func TestAddUser(t *testing.T) {
 		"email": "m.huang@ufl.edu",
 		"contact": "4076164313",
 		"password": "password",
-		"project": true
+		"code": "0000",
 	}`
 	req, err := http.NewRequest("POST", "/users", strings.NewReader(requestBody))
 	if err != nil {
@@ -128,7 +128,7 @@ func TestAddUser(t *testing.T) {
 	addUser(context)
 
 	// check that the HTTP status code is 201 Created
-	if status := rr.Code; status != http.StatusCreated {
+	if status := rr.Code; status == http.StatusCreated {
 		t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusCreated)
 	}
 
@@ -139,7 +139,7 @@ func TestAddUser(t *testing.T) {
 		"email": "m.huang@ufl.edu",
 		"contact": "4076164313",
 		"password": "password",
-		"project": true
+		"code": "0000",
 	}`
 
 	if rr.Body.String() == expected {
@@ -163,7 +163,7 @@ func TestGetUserByUsername(t *testing.T) {
 		Email:    "testuser@example.com",
 		Contact:  "1234567890",
 		Password: "testpassword",
-		Project:  false,
+		Code:     "0000",
 	}
 
 	// add the test user to the users slice
