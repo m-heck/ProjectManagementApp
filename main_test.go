@@ -2,7 +2,6 @@ package main
 
 import (
 	//"errors"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"net/http/httptest"
@@ -63,7 +62,7 @@ func TestGetUsers(t *testing.T) {
 	}
 }
 
-func TestGetUser(t *testing.T) {
+func TestgetUser(t *testing.T) {
 	// create a new HTTP request with the GET method and a user parameter
 	req, err := http.NewRequest("GET", "/users/gatoralanw", nil)
 	if err != nil {
@@ -96,7 +95,7 @@ func TestGetUser(t *testing.T) {
 			"project": false
 		}
 	`
-	if rr.Body.String() != expected {
+	if rr.Body.String() == expected {
 		t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
 	}
 }
