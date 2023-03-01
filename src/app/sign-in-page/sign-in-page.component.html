@@ -8,7 +8,39 @@
       <mat-tab-group color="accent">
         <mat-tab label="Sign Up">
           <div class="tab">
+            <form #userForm="ngForm" (ngSubmit)="signUpButton(userForm.value)">
             <mat-form-field color="accent" class="example-full-width first-input">
+              <mat-label>Username</mat-label>
+              <input type="text" color="accent" matInput placeholder="Username" name="username" ngModel>
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Name</mat-label>
+              <input type="text" color="accent" matInput placeholder="Name" name="name" ngModel>
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Phone Number</mat-label>
+              <input type="text" color="accent" matInput placeholder="Phone Number" name="phonenumber" ngModel>
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="text" color="accent" matInput placeholder="Email" name="email" ngModel>
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input type="text" color="accent" matInput placeholder="Password" name="password" ngModel>
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Project Join Code</mat-label>
+              <input type="text" maxlength="4" min="0" max="9999" step="1" pattern="[0-9]{4}" matInput placeholder="4 Digit Numerical Code" name="code" ngModel>
+            </mat-form-field>
+            <input type="submit" value="Sign Up" color="accent" class="submit-button">
+            </form>
+            <!--
+            <mat-form-field color="accent" class="example-full-width first-input">
+              <mat-label>Username</mat-label>
+              <input type="text" color="accent" matInput placeholder="Username" [(ngModel)]='username' required>
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
               <mat-label>Name</mat-label>
               <input type="text" color="accent" matInput placeholder="Name" [(ngModel)]='name' required>
             </mat-form-field>
@@ -31,11 +63,17 @@
             <button mat-raised-button color="accent" class="submit-button" (click)="signUpButton()" id="signup1">
               Sign Up
             </button>
+          -->
           </div>
         </mat-tab>
         <mat-tab label="Team Manager Sign Up">
+          <!--
           <div class="tab">
             <mat-form-field color="accent" class="example-full-width first-input">
+              <mat-label>Username</mat-label>
+              <input matInput placeholder="Username" [(ngModel)]="username" required>
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
               <mat-label>Name</mat-label>
               <input matInput placeholder="Name" [(ngModel)]="name" required>
             </mat-form-field>
@@ -63,6 +101,7 @@
                 Sign Up
               </button>
           </div>
+        -->
         </mat-tab>
       </mat-tab-group>
     </mat-card-content>

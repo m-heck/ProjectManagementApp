@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { HttpClient } from '@angular/common/http';
 //import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,6 +11,9 @@ import { DataService } from '../data.service';
 })
 
 export class SignInPageComponent {
+
+  /*
+  public username: string = '';
   public name: string = '';
   public phone: string = '';
   public email: string = '';
@@ -17,10 +21,23 @@ export class SignInPageComponent {
   public tname: string = '';
   public code: string = '';
   constructor(private service: DataService, private _router: Router) { }
+  */
+
+  constructor(private http: HttpClient){
 
 
+  }
+
+  signUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, code: string} ){
+    console.log(users);
+    this.http.post('http://localhost:3000/users', users)
+    .subscribe((res) => {
+      console.log(res);
+    });
+  }
+  /*
   signUpButton() {
-    this.service.submitUser(this.name, this.phone, this.email, this.password, this.code).subscribe(
+    this.service.submitUser(this.username, this.name, this.phone, this.email, this.password, this.code).subscribe(
       response => {
         console.log('API response to submitUser:', response);
       },
@@ -34,10 +51,13 @@ export class SignInPageComponent {
     }
     const message = this.name + " has been signed up!";
     alert(message);
-  }
 
+  }
+  */
+
+  /*
   teamSignUpButton() {
-    this.service.submitUser(this.name, this.phone, this.email, this.password, this.code).subscribe(
+    this.service.submitUser(this.username, this.name, this.phone, this.email, this.password, this.code).subscribe(
       response => {
         console.log('API response to submitUser:', response);
       },
@@ -58,4 +78,5 @@ export class SignInPageComponent {
     const message = this.name + " has been signed up!";
     alert(message);
   }
+  */
 }

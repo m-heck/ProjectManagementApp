@@ -8,15 +8,16 @@ export class DataService {
   //url = '/newUsers';
   //url = 'http://localhost:3000/project-management-app';
 
-  submitUser(name: string, phone: string, email: string, password: string, code: string) {
+  submitUser(username: string, name: string, phone: string, email: string, password: string, code: string) {
     const data = {
+      username: username,
       name: name,
       phone: phone,
       email: email,
       password: password,
       code: code
     };
-    return this.http.post(this.url, data);
+    return this.http.post<any>(this.url, data);
   }
 
   submitTeam(tname: string, code: string) {

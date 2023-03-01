@@ -7,24 +7,40 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func CORSMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Credentials", "true")
+		c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Header("Access-Control-Allow-Methods", "POST,HEAD,PATCH, OPTIONS, GET, PUT")
+
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(204)
+			return
+		}
+
+		c.Next()
+	}
+}
+
 type user struct {
 	Username string `json:"username"`
 	Name     string `json:"name"`
 	Email    string `json:"email"`
 	Contact  string `json:"contact"`
 	Password string `json:"password"`
-	Project  bool   `json:"project"`
+	Code     string `json:"code"`
 }
 
 var users = []user{
-	{Username: "gatoralanw", Name: "Alan", Email: "a.wang@ufl.edu", Contact: "3525141846", Password: "IcantactaullyShowmyPasswordLOL", Project: false},
-	{Username: "TossTheNoodles", Name: "Jerry", Email: "j.wang@ufl.edu", Contact: "4076164313", Password: "IcantactaullyShowmyPasswordLOL", Project: false},
-	{Username: "Makshiboi", Name: "Max", Email: "m.huang@ufl.edu", Contact: "3523426677", Password: "IcantactaullyShowmyPasswordLOL", Project: false},
+	{Username: "gatoralanw", Name: "Alan", Email: "a.wang@ufl.edu", Contact: "3525141846", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"},
+	{Username: "TossTheNoodles", Name: "Jerry", Email: "j.wang@ufl.edu", Contact: "4076164313", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"},
+	{Username: "Makshiboi", Name: "Max", Email: "m.huang@ufl.edu", Contact: "3523426677", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"},
 }
 
 func getUsers(context *gin.Context) {
 	context.IndentedJSON(http.StatusOK, users)
-
 }
 
 func addUser(context *gin.Context) {
@@ -60,7 +76,7 @@ func toggleUserStatus(context *gin.Context) {
 		return
 	}
 
-	user.Project = !user.Project
+	user.Code = "9999"
 
 	context.IndentedJSON(http.StatusOK, user)
 }
@@ -76,7 +92,11 @@ func getUserByUsername(username string) (*user, error) {
 }
 
 func main() {
+	/* mux := http.NewServeMux()
+	mux.HandleFunc("/plm/cors", Cors)
+	http.ListenAndServe(":4200", mux) */
 	router := gin.Default()
+	router.Use(CORSMiddleware())
 	router.GET("/users", getUsers)
 	router.GET("/users/:username", getUser)
 	router.PATCH("/users/:username", toggleUserStatus)
