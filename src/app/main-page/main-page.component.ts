@@ -7,7 +7,10 @@ import { Router } from '@angular/router';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
+
 export class MainPageComponent {
+
+  progress: number[] = [92, 72, 32, 24];
 
   constructor(private _router: Router) { }
 

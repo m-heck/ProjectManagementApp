@@ -1,0 +1,54 @@
+// for theme importing
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import '../../styles.scss';
+
+// load the color config
+$color-config: mat.get-color-config($project-management-app-theme);
+
+// get the chosen palette : primary
+$primary: map.get($color-config, 'primary');
+$accent: map.get($color-config, 'accent');
+$secondary: map.get($color-config, 'secondary');
+
+.signOut {
+  float: right;
+  margin-right: 5vw;
+  background-color: mat.get-color-from-palette($accent, 800);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+.teamSidebar {
+  width: 20vw;
+  height: 100%;
+  position: relative;
+  color: blue;
+  background-color: mat.get-color-from-palette($primary, 50);
+}
+
+.team-member-progress{
+    height: 10vh;
+}
+
+.progress-title{
+    width: 30vw;
+    height: 10vh;
+}
+
+.project-title {
+  width: 60vw;
+  height: 15vh;
+}
