@@ -10,13 +10,13 @@
           <div class="tab">
             <mat-form-field color="accent" class="example-full-width first-input">
               <mat-label>Email</mat-label>
-              <input type="email" matInput placeholder="Email">
+              <input type="email" matInput placeholder="Email" required>
             </mat-form-field>
             <mat-form-field color="accent" class="example-full-width">
               <mat-label>Password</mat-label>
-              <input type="password" matInput placeholder="Password">
+              <input type="password" matInput placeholder="Password" required>
             </mat-form-field>
-            <button mat-raised-button color="accent" class="submit-button" (click) ="loginButton()">
+            <button mat-raised-button color="accent" class="submit-button" id="loginbutton" (click) ="loginButton()">
                 Login
             </button>
           </div>
