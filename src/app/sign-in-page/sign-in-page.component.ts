@@ -38,6 +38,18 @@ export class SignInPageComponent {
     const message = users.name + " has been signed up!";
     alert(message);
   }
+
+  teamSignUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, code: string} ){
+    console.log(users);
+    this.http.post('http://localhost:3000/users', users)
+    .subscribe((res) => {
+      console.log(res);
+    });
+    this._router.navigate(['/main']);
+    const message = users.name + " has been signed up!";
+    alert(message);
+  }
+  
   /*
   signUpButton() {
     this.service.submitUser(this.username, this.name, this.phone, this.email, this.password, this.code).subscribe(
