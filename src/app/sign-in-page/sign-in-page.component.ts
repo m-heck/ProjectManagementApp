@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from '../data.service';
+//import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
 //import { FormsModule } from '@angular/forms';
 
@@ -23,20 +23,19 @@ export class SignInPageComponent {
   constructor(private service: DataService, private _router: Router) { }
   */
 
-  constructor(private http: HttpClient, private service: DataService, private _router: Router){
-
-
-  }
-
+  constructor(private http: HttpClient, private _router: Router){}
   signUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, code: string} ){
     console.log(users);
     this.http.post('http://localhost:3000/users', users)
     .subscribe((res) => {
       console.log(res);
     });
-    this._router.navigate(['/main']);
-    const message = users.name + " has been signed up!";
-    alert(message);
+
+    if (true) {
+      this._router.navigate(['/main']);
+    }
+    const message = "You has been signed up!";
+
   }
 
   teamSignUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, code: string} ){
