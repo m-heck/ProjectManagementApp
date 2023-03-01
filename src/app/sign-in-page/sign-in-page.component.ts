@@ -24,7 +24,6 @@ export class SignInPageComponent {
   */
 
   constructor(private http: HttpClient, private _router: Router){}
-
   signUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, code: string} ){
     console.log(users);
     this.http.post('http://localhost:3000/users', users)
@@ -36,7 +35,7 @@ export class SignInPageComponent {
       this._router.navigate(['/main']);
     }
     const message = "You has been signed up!";
-    alert(message);
+
   }
   /*
   signUpButton() {
