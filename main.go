@@ -13,12 +13,13 @@ type user struct {
 	Email    string `json:"email"`
 	Contact  string `json:"contact"`
 	Password string `json:"password"`
+	Project  bool   `json:"project"`
 }
 
 var users = []user{
-	{Username: "gatoralanw", Name: "Alan", Email: "a.wang@ufl.edu", Contact: "3525141846", Password: "IcantactaullyShowmyPasswordLOL"},
-	{Username: "TossTheNoodles", Name: "Jerry", Email: "j.wang@ufl.edu", Contact: "4076164313", Password: "IcantactaullyShowmyPasswordLOL"},
-	{Username: "Makshiboi", Name: "Max", Email: "m.huang@ufl.edu", Contact: "3523426677", Password: "IcantactaullyShowmyPasswordLOL"},
+	{Username: "gatoralanw", Name: "Alan", Email: "a.wang@ufl.edu", Contact: "3525141846", Password: "IcantactaullyShowmyPasswordLOL", Project: false},
+	{Username: "TossTheNoodles", Name: "Jerry", Email: "j.wang@ufl.edu", Contact: "4076164313", Password: "IcantactaullyShowmyPasswordLOL", Project: false},
+	{Username: "Makshiboi", Name: "Max", Email: "m.huang@ufl.edu", Contact: "3523426677", Password: "IcantactaullyShowmyPasswordLOL", Project: false},
 }
 
 func getUsers(context *gin.Context) {
@@ -50,6 +51,20 @@ func getUser(context *gin.Context) {
 	context.IndentedJSON(http.StatusOK, user)
 }
 
+func toggleUserStatus(context *gin.Context) {
+	username := context.Param("username")
+	user, err := getUserByUsername(username)
+
+	if err != nil {
+		context.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
+		return
+	}
+
+	user.Project = !user.Project
+
+	context.IndentedJSON(http.StatusOK, user)
+}
+
 func getUserByUsername(username string) (*user, error) {
 	for i, t := range users {
 		if t.Username == username {
@@ -64,6 +79,7 @@ func main() {
 	router := gin.Default()
 	router.GET("/users", getUsers)
 	router.GET("/users/:username", getUser)
+	router.PATCH("/users/:username", toggleUserStatus)
 	router.POST("/users", addUser)
 	router.Run("localhost:3000")
 }
