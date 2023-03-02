@@ -95,5 +95,9 @@ describe('TeamSignInPageComponent', () => {
     })
 })
 ```
+Our Cypress End to End test file includes multiple tests within it. The first test checks that the page of our app can be visited and the page displays correctly. The next one checks that the title is correctly displayed. The third simulates clicking on the Sign Up link and ensures that the new page is correctly displayed. The fourth Cypress test checks that when the Sign Up link is clicked, the new URL is correct
 # 3. List unit tests for backend
+### GoLang Unit Test
+Our Backend Unit tests include multiple tests that test the functions in our main.go that contains the API calls to the front-end. The first test (TestGetUser) checks whether or not the function GetUser gets the users data from the username. Our second test (TestGetUsers) tests the function GetUsers which gets all users currently stored in the API database. Our third test (TestAddUser) tests the function AddUser which adds a user into the API database. Our final test (TestetUserByUsername) tests the function GetUserByUsername which gets the user
+### Unit Test: GetUser() function, Gets User
 # 4. Add documentation for your backend API

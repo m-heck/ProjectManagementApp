@@ -10,28 +10,26 @@ import (
 )
 
 func TestGetUser(t *testing.T) {
-	// create a new HTTP request with the GET method and a user parameter
+	// new HTTP request
 	req, err := http.NewRequest("GET", "/users/gatoralanw", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	// create a new response recorder to record the HTTP response
+	// new response recorder
 	rr := httptest.NewRecorder()
-
-	// create a new context with the request and response recorder
 	context, _ := gin.CreateTestContext(rr)
 	context.Request = req
 
-	// call the getUser function with the test context
+	// call the getUser function
 	getUser(context)
 
-	// check that the HTTP status code is 200 OK
+	// check if status is OK
 	if status := rr.Code; status != http.StatusOK {
 		t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusOK)
 	}
 
-	// check that the response body is a JSON-encoded representation of the user variable
+	// create an expected JSON object
 	expected := `
 		{
 			"username": "gatoralanw",
@@ -42,33 +40,36 @@ func TestGetUser(t *testing.T) {
 			"code": "0000",
 		}
 	`
+
+	//test to see if it is expected
 	if rr.Body.String() == expected {
 		t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
 	}
 }
 
 func TestGetUsers(t *testing.T) {
-	// create a new HTTP request with the GET method and an empty request body
+	// new HTTP request
 	req, err := http.NewRequest("GET", "/users", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	// create a new response recorder to record the HTTP response
+	// new response recorder
 	rr := httptest.NewRecorder()
 
-	// create a new context with the request and response recorder
+	// cnew request
 	context, _ := gin.CreateTestContext(rr)
 	context.Request = req
 
-	// call the getUsers function with the test context
+	// call the getUser function
 	getUsers(context)
-	// check that the HTTP status code is 200 OK
+
+	// check if status is OK
 	if status := rr.Code; status != http.StatusOK {
 		t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusOK)
 	}
 
-	// check that the response body is a JSON-encoded representation of the users variable
+	// create an expected JSON object
 	expected := `[
 		{
 			"username": "gatoralanw",
@@ -96,13 +97,14 @@ func TestGetUsers(t *testing.T) {
 		}
 ]`
 
+	//test to see if it is expected
 	if rr.Body.String() == expected {
 		t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
 	}
 }
 
 func TestAddUser(t *testing.T) {
-	// create a new HTTP request with the POST method and a JSON-encoded request body
+	// new HTTP request
 	requestBody := `{
 		"username": "Markshiboi",
 		"name": "Max",
@@ -117,22 +119,22 @@ func TestAddUser(t *testing.T) {
 	}
 	req.Header.Set("Content-Type", "application/json")
 
-	// create a new response recorder to record the HTTP response
+	// new response recorder
 	rr := httptest.NewRecorder()
 
-	// create a new context with the request and response recorder
+	// new context
 	context, _ := gin.CreateTestContext(rr)
 	context.Request = req
 
-	// call the addUser function with the test context
+	//call addUser function
 	addUser(context)
 
-	// check that the HTTP status code is 201 Created
+	// check if status is made
 	if status := rr.Code; status == http.StatusCreated {
 		t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusCreated)
 	}
 
-	// check that the response body is a JSON-encoded representation of the newly added user
+	// expected JSON values
 	expected := `{
 		"username": "Markshiboi",
 		"name": "Max",
@@ -146,7 +148,7 @@ func TestAddUser(t *testing.T) {
 		t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
 	}
 
-	// check that the user was added to the users slice
+	// check that the user was added
 	if len(users) == 1 {
 		t.Errorf("user was not added to slice: got %v want %v", len(users), 1)
 	}
@@ -158,30 +160,30 @@ func TestAddUser(t *testing.T) {
 func TestGetUserByUsername(t *testing.T) {
 	// create a test user
 	testUser := user{
-		Username: "testuser",
-		Name:     "Test User",
-		Email:    "testuser@example.com",
-		Contact:  "1234567890",
+		Username: "Juremy",
+		Name:     "Jeremy Garcia",
+		Email:    "jjraider@gmail.com",
+		Contact:  "3525141234",
 		Password: "testpassword",
 		Code:     "0000",
 	}
 
-	// add the test user to the users slice
+	// add the test user
 	users = append(users, testUser)
 
-	// call the getUserByUsername function with the test user's username
-	result, err := getUserByUsername("testuser")
+	// call the getUserByUsername function
+	result, err := getUserByUsername("Juremy")
 
-	// check that the function returned the correct user
+	// check if returned
 	if err != nil {
 		t.Errorf("getUserByUsername returned an error: %v", err)
 	}
 
-	if result.Username != "testuser" {
+	if result.Username != "Juremy" {
 		t.Errorf("getUserByUsername returned the wrong user: got %v, want %v", result, testUser)
 	}
 
-	// call the getUserByUsername function with a nonexistent username
+	// call the getUserByUsername function
 	result, err = getUserByUsername("nonexistentuser")
 
 	// check that the function returned an error
