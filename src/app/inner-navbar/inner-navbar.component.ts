@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+
 
 
 @Component({
@@ -8,13 +11,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./inner-navbar.component.scss']
 })
 export class InnerNavbarComponent {
-  progress: number[] = [92, 72, 32, 24];
+  @ViewChild(MatSidenav) sidenav: MatSidenav;
 
-  constructor(private _router: Router) { }
+  constructor(private router: Router) {}
 
   signOutButton(): void {
-    this._router.navigate(['']);
+    this.router.navigate(['']);
     alert("You have logged out.");
   }
 
+  toggleSidebar(): void {
+    this.sidenav.toggle();
+  }
 }

@@ -17,6 +17,8 @@ $accent: map.get($color-config, 'accent');
   position: fixed;
 
   z-index: 1000;
+  background-color: mat.get-color-from-palette($primary, 400);
+
 }
   
 .active{
