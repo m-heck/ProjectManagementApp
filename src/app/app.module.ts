@@ -20,6 +20,10 @@ import { TeamSignInPageComponent } from './team-sign-in-page/team-sign-in-page.c
 import { PreLoginNavbarComponent } from './pre-login-navbar/pre-login-navbar.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { DataService } from './data.service';
+import { InnerNavbarComponent } from './inner-navbar/inner-navbar.component';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { DataService } from './data.service';
     HomePageComponent,
     TeamSignInPageComponent,
     PreLoginNavbarComponent,
-    MainPageComponent
+    MainPageComponent,
+    InnerNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,9 @@ import { DataService } from './data.service';
     HttpClientModule,
     FormsModule,
     MatListModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
