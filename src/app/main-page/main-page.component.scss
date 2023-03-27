@@ -27,15 +27,10 @@ $secondary: map.get($color-config, 'secondary');
   transition-duration: 0.3s;
 }
 
-button:hover {
-  background-color: #3e8e41;
-}
-
 .teamSidebar {
   width: 20vw;
   height: 100%;
   position: relative;
-  color: blue;
   background-color: mat.get-color-from-palette($primary, 50);
 }
 
@@ -55,4 +50,14 @@ button:hover {
 
 .whitespace {
   margin-top: 70px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+}
+
+.tasks-section {
+  width: 100%;
 }

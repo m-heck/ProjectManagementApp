@@ -1,18 +1,42 @@
-<div>
+<div class="container">
   <mat-card>
     <mat-card-content>
       <app-inner-navbar></app-inner-navbar>
       <div class="whitespace"></div>
-      <mat-card class="teamSidebar">
-        <mat-card-content>
-          <mat-list>
-            <mat-list-item *ngFor="let number of progress" class="team-member-progress">
-              <mat-label class="progress-title">*Team Member Name*</mat-label>
-              <mat-progress-bar mode="determinate" value={{number}} color=accent></mat-progress-bar>
-            </mat-list-item>
-          </mat-list>
-        </mat-card-content>
-      </mat-card>
+      <div class="main-content">
+        <mat-card class="teamSidebar">
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item *ngFor="let number of progress" class="team-member-progress">
+                <mat-label class="progress-title">*Team Member Name*</mat-label>
+                <mat-progress-bar mode="determinate" value={{number}} color=accent></mat-progress-bar>
+              </mat-list-item>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+        <div class="tasks-section">
+          <app-task-card 
+            title="Finish SWE Homework"
+            dueDate="03-29-2023"
+            [tags]="['programming', 'swe']">
+          </app-task-card>
+          <app-task-card 
+            title="Take SWE Exam"
+            dueDate="03-30-2023"
+            [tags]="['exam', 'swe', 'project']">
+          </app-task-card>
+          <app-task-card 
+            title="Start OS project"
+            dueDate="03-31-2023"
+            [tags]="['project', 'os', 'memory management', 'homework']">
+          </app-task-card>
+          <app-task-card 
+            title="Buy groceries"
+            dueDate="03-30-2023"
+            [tags]="['food', 'errand', 'find carpool']">
+          </app-task-card>
+        </div>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

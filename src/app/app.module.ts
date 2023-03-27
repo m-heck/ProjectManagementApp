@@ -26,6 +26,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { TaskCardComponent } from './task-card/task-card.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -37,7 +40,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     PreLoginNavbarComponent,
     MainPageComponent,
     InnerNavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    TaskCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatProgressBarModule,
     MatToolbarModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatChipsModule,
+    MatCheckboxModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
