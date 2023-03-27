@@ -11,6 +11,11 @@ $primary: map.get($color-config, 'primary');
 $accent: map.get($color-config, 'accent');
 $secondary: map.get($color-config, 'secondary');
 
+.container {
+  height: auto;
+  background-color: #fdfbf9;
+}
+
 .signOut {
   float: right;
   margin-right: 5vw;
