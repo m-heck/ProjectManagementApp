@@ -3,8 +3,9 @@
       <div class="whitespace"></div>
       <div class="main-content">
         <mat-card class="teamSidebar">
-            <app-progress-card *ngFor="let name of names"
-              name = {{name}}>
+            <app-progress-card *ngFor="let user of users"
+              percent = {{user.percent}}
+              name = {{user.name}}>
             </app-progress-card>
         </mat-card>
         <div class="tasks-section">

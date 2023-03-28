@@ -25,15 +25,48 @@ $secondary: map.get($color-config, 'secondary');
   .member-name {
     font-size: 24px;
     font-weight: bold;
+    margin: 10vh, 0, 10vh, 0;
   }
 
   .bar {
     display: flex;
     flex-wrap: wrap;
-    height: 10vh;
     gap: 4px;
     margin-top: 15px;
     margin-right: auto;
+    height: 20px;
   }
 }
+
+.progress2 {
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.progress-bar2 {
+  height: 18px;
+  border-radius: 30px;
+  transition: 0.4s linear;
+  transition-property: width, background-color;
+}
+
+.progress-moved .progress-bar2 {
+  background-color: #34fa76;
+  animation: progress 4s forwards;
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+    background: #36315c;
+  }
+
+  100% {
+    width: var(--size);
+    background: #6193ff;
+    box-shadow: 0 0 10px #6193ff;
+  }
+}
+
+
 

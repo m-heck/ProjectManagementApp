@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
-
+interface user {
+  name: string;
+  percent: string;
+}
 
 @Component({
   selector: 'app-main-page',
@@ -13,7 +16,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class MainPageComponent {
 
-  names: string[] = ['May', 'June', 'July'];
+  users: user[] = [{ name: 'Alan', percent: "23%" }, { name: 'Maren', percent: "76%" }, { name: 'Jerry', percent: "45%" }, {name: 'Max', percent: "100%"}];
 
   constructor(private _router: Router) { }
 

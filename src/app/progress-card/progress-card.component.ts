@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ProgressCardComponent {
   @Input() name: string;
+  @Input() percent: string;
 }
