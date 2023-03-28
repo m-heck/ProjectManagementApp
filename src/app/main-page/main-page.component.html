@@ -3,14 +3,9 @@
       <div class="whitespace"></div>
       <div class="main-content">
         <mat-card class="teamSidebar">
-          <mat-card-content>
-            <mat-list>
-              <mat-list-item *ngFor="let number of progress" class="team-member-progress">
-                <mat-label class="progress-title">*Team Member Name*</mat-label>
-                <mat-progress-bar mode="determinate" value={{number}} color=accent></mat-progress-bar>
-              </mat-list-item>
-            </mat-list>
-          </mat-card-content>
+            <app-progress-card *ngFor="let name of names"
+              name = {{name}}>
+            </app-progress-card>
         </mat-card>
         <div class="tasks-section">
           <app-task-card 

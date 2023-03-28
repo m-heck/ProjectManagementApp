@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -8,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-page.component.scss']
 })
 
+
 export class MainPageComponent {
 
-  progress: number[] = [92, 72, 32, 24];
+  names: string[] = ['May', 'June', 'July'];
 
   constructor(private _router: Router) { }
 
@@ -18,6 +21,4 @@ export class MainPageComponent {
     this._router.navigate(['']);
     alert("You have logged out.");
   }
-
-
 }

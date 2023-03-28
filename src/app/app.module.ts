@@ -29,6 +29,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { TaskCardComponent } from './task-card/task-card.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ProgressCardComponent } from './progress-card/progress-card.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     InnerNavbarComponent,
     SidebarComponent,
     TaskCardComponent,
+    ProgressCardComponent,
   ],
   imports: [
     BrowserModule,

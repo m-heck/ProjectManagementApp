@@ -1,0 +1,39 @@
+// for theme importing
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import '../../styles.scss';
+
+// load the color config
+$color-config: mat.get-color-config($project-management-app-theme);
+
+// get the chosen palette : primary
+$primary: map.get($color-config, 'primary');
+$accent: map.get($color-config, 'accent');
+$secondary: map.get($color-config, 'secondary');
+
+.progress-card {
+  width: 100%;
+  height: 150px;
+  z-index: 0;
+  display: block;
+  flex-direction: column;
+  justify-content: left;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  box-shadow: inset;
+
+  .member-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    height: 10vh;
+    gap: 4px;
+    margin-top: 15px;
+    margin-right: auto;
+  }
+}
+

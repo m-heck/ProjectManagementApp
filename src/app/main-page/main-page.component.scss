@@ -37,6 +37,8 @@ $secondary: map.get($color-config, 'secondary');
   height: 100%;
   position: relative;
   background-color: mat.get-color-from-palette($primary, 50);
+  justify-content: left;
+  padding: 0,0,0,0;
 }
 
 .team-member-progress{
