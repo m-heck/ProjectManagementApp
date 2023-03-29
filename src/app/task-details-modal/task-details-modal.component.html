@@ -1,6 +1,17 @@
-<mat-card>
+<mat-card class="details-card">
   <mat-card-header> {{title}} </mat-card-header>
-  <mat-card-content></mat-card-content>
+  <mat-card-content>
+    <form #userForm="ngForm">
+      <mat-form-field color="accent" class="example-full-width first-input">
+        <mat-label>Username</mat-label>
+        <input type="text" color="accent" matInput placeholder="Username" name="username" ngModel>
+      </mat-form-field>
+      <mat-form-field color="accent" class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input type="text" color="accent" matInput placeholder="Name" name="name" ngModel>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
   
 
 
