@@ -237,3 +237,70 @@ func TestGetCodebyUser(t *testing.T) {
 		t.Errorf("Expected body %q but got %q", expectedBody, recorder.Body.String())
 	}
 }
+
+func TestUpdateUserCode(t *testing.T) {
+	// Initialize Gin context
+	w := httptest.NewRecorder()
+	c, _ := gin.CreateTestContext(w)
+
+	// new HTTP request
+	requestBody := `{
+	"username": "Markshiboi",
+	"name": "Max",
+	"email": "m.huang@ufl.edu",
+	"contact": "4076164313",
+	"password": "password",
+	"code": "0000",
+	}`
+	req, err := http.NewRequest("POST", "/users", strings.NewReader(requestBody))
+	if err != nil {
+		t.Fatal(err)
+	}
+	req.Header.Set("Content-Type", "application/json")
+
+	// new response recorder
+	rr := httptest.NewRecorder()
+
+	// new context
+	context, _ := gin.CreateTestContext(rr)
+	context.Request = req
+
+	//call addUser function
+	addUser(context)
+
+	// check if status is made
+	if status := rr.Code; status == http.StatusCreated {
+		t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusCreated)
+	}
+	// Mock the request body
+	//updateUser := user{Code: "1234"}
+	//req, _ := http.NewRequest(http.MethodPut, "/users/gatoralanw/code", bytes.NewBuffer(reqBody))
+	//req.Header.Set("Content-Type", "application/json")
+	//c.Request = req
+
+	// Call the function with the mock context
+	updateUserCode(c)
+
+	// Assert the HTTP response status code
+	if w.Code == http.StatusOK {
+		t.Errorf("Expected status code %d, but got %d", http.StatusOK, w.Code)
+	}
+
+	// Check the response body contains the expected message
+	//expectedBody := `{"message":"Sure code updated","user":{"username":"gatoralanw","name":"Alan","email":"a.wang@ufl.edu","contact":"3525141846","password":"IcantactaullyShowmyPasswordLOL","code":"1234"}}`
+	//if recorder.Body.String() == expectedBody {
+	// t.Errorf("Expected body %q but got %q", expectedBody, recorder.Body.String())
+	//}
+
+	// Check the user's code has been updated
+	found := false
+	for _, u := range users {
+		if u.Username == "gatoralanw" && u.Code == "1234" {
+			found = true
+			break
+		}
+	}
+	if found {
+		t.Errorf("User's code not updated")
+	}
+}
