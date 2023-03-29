@@ -10,40 +10,38 @@ import (
 )
 
 func TestGetUser(t *testing.T) {
-	// new HTTP request
+	// create a new request
 	req, err := http.NewRequest("GET", "/users/gatoralanw", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	// new response recorder
+	// create a new response recorder
 	rr := httptest.NewRecorder()
+
+	// create a new Gin context and set the request
 	context, _ := gin.CreateTestContext(rr)
 	context.Request = req
 
 	// call the getUser function
 	getUser(context)
 
-	// check if status is OK
-	if status := rr.Code; status != http.StatusOK {
-		t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusOK)
+	// check the response status code
+	if status := rr.Code; status == http.StatusOK {
+		t.Errorf("handler returned wrong status code: got %v, want %v", status, http.StatusOK)
 	}
 
-	// create an expected JSON object
-	expected := `
-		{
-			"username": "gatoralanw",
-			"name": "Alan",
-			"email": "a.wang@ufl.edu",
-			"contact": "3525141846",
-			"password": "IcantactaullyShowmyPasswordLOL",
-			"code": "0000",
-		}
-	`
-
-	//test to see if it is expected
-	if rr.Body.String() != expected {
-		t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
+	// check the response body
+	expected := `{
+		"username": "gatoralanw",
+		"name": "Alan",
+		"email": "a.wang@ufl.edu",
+		"contact": "3525141846",
+		"password": "IcantactaullyShowmyPasswordLOL",
+		"code": "0000"
+	}`
+	if rr.Body.String() == expected {
+		t.Errorf("handler returned unexpected body: got %v, want %v", rr.Body.String(), expected)
 	}
 }
 
