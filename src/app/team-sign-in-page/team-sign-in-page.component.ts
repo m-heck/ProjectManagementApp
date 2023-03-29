@@ -5,6 +5,14 @@ import { HttpClient } from '@angular/common/http';
 import { SignInPageComponent } from '../sign-in-page/sign-in-page.component';
 //import * as fs from "fs";
 
+export const person = {
+  username: " ",
+  name: "",
+  phone: "",
+  email: "",
+  password: "",
+  code: ""
+};
 declare var require: any;
 @Component({
   selector: 'app-team-sign-in-page',
@@ -56,6 +64,12 @@ export class TeamSignInPageComponent {
           if(arr[n]["password"] == users.password)
           {
               count2++;
+              person.username = arr[n]["username"];
+              person.name = arr[n]["name"];
+              person.phone = arr[n]["contact"];
+              person.email = arr[n]["email"];
+              person.password = arr[n]["password"];
+              person.code = arr[n]["code"];
               //console.log(JSON.parse(fs.readFileSync('user_instance.json').toString()))
               //const data = JSON.parse(fs.readFileSync('user_instance.json').toString())
               //data.name = "lol"
