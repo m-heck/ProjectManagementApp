@@ -192,17 +192,17 @@ func TestGetUserByUsername(t *testing.T) {
 }
 
 func TestGetUserByCode(t *testing.T) {
-	// Initialize Gin context
+	// Set up test context
 	w := httptest.NewRecorder()
 	c, _ := gin.CreateTestContext(w)
 
-	// Mock the query parameter
+	// Mock query parameter
 	c.Request = httptest.NewRequest(http.MethodGet, "/users?code=0000", nil)
 
 	// Call the function with the mock context
 	getUserbyCode(c)
 
-	// Assert the HTTP response status code
+	// Check if HTTP response status code is correct
 	if w.Code != http.StatusOK {
 		t.Errorf("Expected status code %d, but got %d", http.StatusOK, w.Code)
 	}
@@ -210,7 +210,7 @@ func TestGetUserByCode(t *testing.T) {
 }
 
 func TestGetCodebyUser(t *testing.T) {
-	// Create a new router and add the getCodebyUser route to it
+	// Set up router and add route
 	router := gin.New()
 	router.GET("/users/:username/code", getCodebyUser)
 
@@ -220,7 +220,7 @@ func TestGetCodebyUser(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	// Create a response recorder to record the response from the server
+	// Create a response recorder
 	recorder := httptest.NewRecorder()
 
 	// Send the request to the server
