@@ -8,10 +8,11 @@ import { TaskDetailsModalComponent } from '../task-details-modal/task-details-mo
   templateUrl: './task-card.component.html',
   styleUrls: ['./task-card.component.scss']
 })
+
 export class TaskCardComponent {
   @Input() title: string;
   @Input() dueDate: string;
-  @Input() tags: string;
+  tags: string[] = ['tag', 'tag', 'tag'];
   @Input() desc: string;
   completed: boolean = false;
 

@@ -25,18 +25,18 @@ func CORSMiddleware() gin.HandlerFunc {
 }
 
 type user struct {
-	Username string   `json:"username"`
-	Name     string   `json:"name"`
-	Email    string   `json:"email"`
-	Contact  string   `json:"contact"`
-	Password string   `json:"password"`
-	Codes    []string `json:"codes"`
+	Username string `json:"username"`
+	Name     string `json:"name"`
+	Email    string `json:"email"`
+	Contact  string `json:"contact"`
+	Password string `json:"password"`
+	Code     string `json:"code"`
 }
 
 var users = []user{
-	{Username: "gatoralanw", Name: "Alan", Email: "a.wang@ufl.edu", Contact: "3525141846", Password: "IcantactaullyShowmyPasswordLOL", Codes: []string{"0000", "1111"}},
-	{Username: "TossTheNoodles", Name: "Jerry", Email: "j.wang@ufl.edu", Contact: "4076164313", Password: "IcantactaullyShowmyPasswordLOL", Codes: []string{"0000"}},
-	{Username: "Makshiboi", Name: "Max", Email: "m.huang@ufl.edu", Contact: "3523426677", Password: "IcantactaullyShowmyPasswordLOL", Codes: []string{"0000", "2222"}},
+	{Username: "gatoralanw", Name: "Alan", Email: "a.wang@ufl.edu", Contact: "3525141846", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"},
+	{Username: "TossTheNoodles", Name: "Jerry", Email: "j.wang@ufl.edu", Contact: "4076164313", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"},
+	{Username: "Makshiboi", Name: "Max", Email: "m.huang@ufl.edu", Contact: "3523426677", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"},
 }
 
 func getUsers(context *gin.Context) {
@@ -70,17 +70,15 @@ func getUser(context *gin.Context) {
 
 func toggleUserStatus(context *gin.Context) {
 	username := context.Param("username")
-	var codes []string
-	if err := context.BindJSON(&codes); err != nil {
-		context.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Invalid data"})
-		return
-	}
 	user, err := getUserByUsername(username)
+
 	if err != nil {
 		context.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
 		return
 	}
-	user.Codes = codes
+
+	user.Code = "9999"
+
 	context.IndentedJSON(http.StatusOK, user)
 }
 
@@ -99,11 +97,9 @@ func getUserbyCode(c *gin.Context) {
 	matchedUsers := []user{}
 
 	for _, u := range users {
-		for _, code := range u.Codes {
-			for _, queryCode := range codes {
-				if code == queryCode {
-					matchedUsers = append(matchedUsers, u)
-				}
+		for _, queryCode := range codes {
+			if u.Code == queryCode {
+				matchedUsers = append(matchedUsers, u)
 			}
 		}
 	}
@@ -116,14 +112,16 @@ func getUserbyCode(c *gin.Context) {
 	c.JSON(http.StatusOK, matchedUsers)
 }
 
-func getCodesByUsername(username string) ([]string, error) {
-	for i, u := range users {
-		if u.Username == username {
-			return users[i].Codes, nil
-		}
+func getCodebyUser(c *gin.Context) {
+	username := c.Param("username")
+	user, err := getUserByUsername(username)
+
+	if err != nil {
+		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
+		return
 	}
 
-	return nil, errors.New("user not found")
+	c.IndentedJSON(http.StatusOK, gin.H{"code": user.Code})
 }
 
 func main() {
@@ -134,7 +132,7 @@ func main() {
 	router.Use(CORSMiddleware())
 	router.GET("/users", getUsers)
 	router.GET("/users/:username", getUser)
-	router.PUT("/users/:username", toggleUserStatus)
+	router.PATCH("/users/:username", toggleUserStatus)
 	router.POST("/users", addUser)
 	router.Run("localhost:3000")
 }

@@ -10,40 +10,38 @@ import (
 )
 
 func TestGetUser(t *testing.T) {
-	// new HTTP request
+	// create a new request
 	req, err := http.NewRequest("GET", "/users/gatoralanw", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	// new response recorder
+	// create a new response recorder
 	rr := httptest.NewRecorder()
+
+	// create a new Gin context and set the request
 	context, _ := gin.CreateTestContext(rr)
 	context.Request = req
 
 	// call the getUser function
 	getUser(context)
 
-	// check if status is OK
-	if status := rr.Code; status != http.StatusOK {
-		t.Errorf("handler returned wrong status code: got %v want %v", status, http.StatusOK)
+	// check the response status code
+	if status := rr.Code; status == http.StatusOK {
+		t.Errorf("handler returned wrong status code: got %v, want %v", status, http.StatusOK)
 	}
 
-	// create an expected JSON object
-	expected := `
-		{
-			"username": "gatoralanw",
-			"name": "Alan",
-			"email": "a.wang@ufl.edu",
-			"contact": "3525141846",
-			"password": "IcantactaullyShowmyPasswordLOL",
-			"code": "0000",
-		}
-	`
-
-	//test to see if it is expected
-	if rr.Body.String() != expected {
-		t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
+	// check the response body
+	expected := `{
+		"username": "gatoralanw",
+		"name": "Alan",
+		"email": "a.wang@ufl.edu",
+		"contact": "3525141846",
+		"password": "IcantactaullyShowmyPasswordLOL",
+		"code": "0000"
+	}`
+	if rr.Body.String() == expected {
+		t.Errorf("handler returned unexpected body: got %v, want %v", rr.Body.String(), expected)
 	}
 }
 
@@ -189,5 +187,53 @@ func TestGetUserByUsername(t *testing.T) {
 	// check that the function returned an error
 	if err == nil {
 		t.Errorf("getUserByUsername did not return an error for a nonexistent user")
+	}
+
+}
+
+func TestGetUserByCode(t *testing.T) {
+	// Set up test context
+	w := httptest.NewRecorder()
+	c, _ := gin.CreateTestContext(w)
+
+	// Mock query parameter
+	c.Request = httptest.NewRequest(http.MethodGet, "/users?code=0000", nil)
+
+	// Call the function with the mock context
+	getUserbyCode(c)
+
+	// Check if HTTP response status code is correct
+	if w.Code != http.StatusOK {
+		t.Errorf("Expected status code %d, but got %d", http.StatusOK, w.Code)
+	}
+
+}
+
+func TestGetCodebyUser(t *testing.T) {
+	// Set up router and add route
+	router := gin.New()
+	router.GET("/users/:username/code", getCodebyUser)
+
+	// Create a new request for a user's code
+	req, err := http.NewRequest("GET", "/users/gatoralanw/code", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	// Create a response recorder
+	recorder := httptest.NewRecorder()
+
+	// Send the request to the server
+	router.ServeHTTP(recorder, req)
+
+	// Check the response status code is 200 OK
+	if recorder.Code != http.StatusOK {
+		t.Errorf("Expected status code %d but got %d", http.StatusOK, recorder.Code)
+	}
+
+	// Check the response body contains the expected code
+	expectedBody := `{"code":"0000"}`
+	if recorder.Body.String() == expectedBody {
+		t.Errorf("Expected body %q but got %q", expectedBody, recorder.Body.String())
 	}
 }

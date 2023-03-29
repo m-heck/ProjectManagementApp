@@ -9,10 +9,10 @@
       <mat-progress-bar mode="determinate" value="50" class="bar"></mat-progress-bar>
       <div class="navbar-button">
         <button mat-button>Timeline</button>
-        <button mat-button (click)="signOutButton()">Sign Out</button>
+        <button id="signoutButton" mat-button (click)="signOutButton()">Sign Out</button>
       </div>
       <div class="navbar-menu">
-        <button mat-icon-button (click)="toggleSidebar()">
+        <button id="hamburger" mat-icon-button (click)="toggleSidebar()">
           <mat-icon>menu</mat-icon>
         </button>
       </div>
@@ -21,4 +21,3 @@
   <mat-sidenav #sidenav mode="side" position="end">
     <app-sidebar></app-sidebar>
   </mat-sidenav>
-  

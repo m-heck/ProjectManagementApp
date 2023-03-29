@@ -81,8 +81,6 @@ $secondary: map.get($color-config, 'secondary');
   display: inline-block;
 }
 
-
-
 @keyframes progress {
   0% {
     width: 0%;
@@ -94,6 +92,3 @@ $secondary: map.get($color-config, 'secondary');
     background: mat.get-color-from-palette($primary, 200);
   }
 }
-
-
-
