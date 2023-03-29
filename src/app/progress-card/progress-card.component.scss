@@ -20,7 +20,7 @@ $secondary: map.get($color-config, 'secondary');
   margin-bottom: 20px;
   margin-left: 10px;
   box-shadow: inset;
-  border-radius: 2vh;
+  border-radius: 1vh;
   padding-right:0px;
 
   .member-name {
@@ -47,7 +47,7 @@ $secondary: map.get($color-config, 'secondary');
     padding-left: 10px;
     font-size: 22px;
     margin-right: 0px;
-    padding-right: 0;
+    padding-right: 0px;
   }
 }
 
@@ -60,14 +60,15 @@ $secondary: map.get($color-config, 'secondary');
 
 .bar-bg {
   display: inline-block;
-  height: 6px;
+  height: 12px;
   border-radius: 3px;
   background-color: mat.get-color-from-palette($accent, 200);
   width: 80%;
+
 }
 
 .progress-bar {
-  height: 18px;
+  height: 12px;
   border-radius: 30px;
   transition: 0.4s linear;
   transition-property: width, background-color;
@@ -89,8 +90,7 @@ $secondary: map.get($color-config, 'secondary');
 
   100% {
     width: var(--size);
-    background: #6193ff;
-    box-shadow: 0 0 10px #6193ff;
+    background: mat.get-color-from-palette($primary, 200);
   }
 }
 
