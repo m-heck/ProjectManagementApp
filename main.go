@@ -92,6 +92,26 @@ func getUserByUsername(username string) (*user, error) {
 	return nil, errors.New("user not found")
 }
 
+func getUserbyCode(c *gin.Context) {
+	codes := c.QueryArray("code")
+	matchedUsers := []user{}
+
+	for _, u := range users {
+		for _, queryCode := range codes {
+			if u.Code == queryCode {
+				matchedUsers = append(matchedUsers, u)
+			}
+		}
+	}
+
+	if len(matchedUsers) == 0 {
+		c.JSON(http.StatusNotFound, gin.H{"message": "No users found with the given code(s)"})
+		return
+	}
+
+	c.JSON(http.StatusOK, matchedUsers)
+}
+
 func main() {
 	/* mux := http.NewServeMux()
 	mux.HandleFunc("/plm/cors", Cors)

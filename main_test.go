@@ -188,4 +188,23 @@ func TestGetUserByUsername(t *testing.T) {
 	if err == nil {
 		t.Errorf("getUserByUsername did not return an error for a nonexistent user")
 	}
+
+}
+
+func TestGetUserByCode(t *testing.T) {
+	// Initialize Gin context
+	w := httptest.NewRecorder()
+	c, _ := gin.CreateTestContext(w)
+
+	// Mock the query parameter
+	c.Request = httptest.NewRequest(http.MethodGet, "/users?code=0000", nil)
+
+	// Call the function with the mock context
+	getUserbyCode(c)
+
+	// Assert the HTTP response status code
+	if w.Code != http.StatusOK {
+		t.Errorf("Expected status code %d, but got %d", http.StatusOK, w.Code)
+	}
+
 }
