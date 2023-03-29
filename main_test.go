@@ -245,12 +245,12 @@ func TestUpdateUserCode(t *testing.T) {
 
 	// new HTTP request
 	requestBody := `{
-	"username": "Markshiboi",
-	"name": "Max",
-	"email": "m.huang@ufl.edu",
-	"contact": "4076164313",
-	"password": "password",
-	"code": "0000",
+		"username": "Markshiboi",
+		"name": "Max",
+		"email": "m.huang@ufl.edu",
+		"contact": "4076164313",
+		"password": "password",
+		"code": "0000",
 	}`
 	req, err := http.NewRequest("POST", "/users", strings.NewReader(requestBody))
 	if err != nil {
@@ -289,7 +289,7 @@ func TestUpdateUserCode(t *testing.T) {
 	// Check the response body contains the expected message
 	//expectedBody := `{"message":"Sure code updated","user":{"username":"gatoralanw","name":"Alan","email":"a.wang@ufl.edu","contact":"3525141846","password":"IcantactaullyShowmyPasswordLOL","code":"1234"}}`
 	//if recorder.Body.String() == expectedBody {
-	// t.Errorf("Expected body %q but got %q", expectedBody, recorder.Body.String())
+	//	t.Errorf("Expected body %q but got %q", expectedBody, recorder.Body.String())
 	//}
 
 	// Check the user's code has been updated
