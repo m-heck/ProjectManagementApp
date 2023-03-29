@@ -12,7 +12,7 @@ $accent: map.get($color-config, 'accent');
 $secondary: map.get($color-config, 'secondary');
 
 .complete {
-  background: #d9e5ff;
+  background: mat.get-color-from-palette($primary, 50);
 }
 
 .progress-card {
@@ -66,7 +66,7 @@ $secondary: map.get($color-config, 'secondary');
   height: 6px;
   border-radius: 3px;
   background-color: mat.get-color-from-palette($accent, 200);
-  width: 80%;
+  width: 100%;
 }
 
 .progress-bar {
@@ -86,7 +86,7 @@ $secondary: map.get($color-config, 'secondary');
 @keyframes progress {
   0% {
     width: 0%;
-    background: #36315c;
+    background: #0000;
   }
 
   100% {
