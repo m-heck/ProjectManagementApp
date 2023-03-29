@@ -65,7 +65,7 @@ import { TaskDetailsModalComponent } from './task-details-modal/task-details-mod
     MatSidenavModule,
     MatChipsModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
