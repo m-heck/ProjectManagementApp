@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 //import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
 import { SignInPageComponent } from '../sign-in-page/sign-in-page.component';
+import * as fs from "fs";
 
-
+declare var require: any;
 @Component({
   selector: 'app-team-sign-in-page',
   templateUrl: './team-sign-in-page.component.html',
@@ -29,6 +30,7 @@ export class TeamSignInPageComponent {
 
   //performs the get request
   signInButton(users: {username: string, password: string} ){
+    //const fs = require('fs')
     let count = 0;
     let count2 = 0;
     const temp = this._router;
@@ -54,6 +56,9 @@ export class TeamSignInPageComponent {
           if(arr[n]["password"] == users.password)
           {
               count2++;
+              //console.log(JSON.parse(fs.readFileSync('user_instance.json').toString()))
+              //const data = JSON.parse(fs.readFileSync('user_instance.json').toString())
+              //data.name = "lol"
           }
           count++;
         }

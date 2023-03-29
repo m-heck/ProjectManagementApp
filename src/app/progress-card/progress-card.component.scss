@@ -11,9 +11,13 @@ $primary: map.get($color-config, 'primary');
 $accent: map.get($color-config, 'accent');
 $secondary: map.get($color-config, 'secondary');
 
+.complete {
+  background: mat.get-color-from-palette($primary, 50);
+}
+
 .progress-card {
   width: 100%;
-  height: 14vh;
+  height: 150px;
   z-index: 0;
   display: block;
   flex-direction: column;
@@ -44,27 +48,25 @@ $secondary: map.get($color-config, 'secondary');
 
   .display-percent {
     display: inline-block;
-    padding-left: 10px;
-    font-size: 22px;
-    margin-right: 0px;
-    padding-right: 0px;
+    margin-left: 0.5vw;
+    font-size: 1vw;
+    padding-right: 0;
   }
 }
 
 .progress2 {
   display: inline-block;
   border-radius: 30px;
-  background-color: #fff;
+  background-color: inherit;
   width: 80%;
 }
 
 .bar-bg {
   display: inline-block;
-  height: 12px;
+  height: 6px;
   border-radius: 3px;
   background-color: mat.get-color-from-palette($accent, 200);
-  width: 80%;
-
+  width: 100%;
 }
 
 .progress-bar {
@@ -75,7 +77,6 @@ $secondary: map.get($color-config, 'secondary');
 }
 
 .progress-moved .progress-bar {
-  background-color: #34fa76;
   animation: progress 4s forwards;
   display: inline-block;
 }
@@ -85,7 +86,7 @@ $secondary: map.get($color-config, 'secondary');
 @keyframes progress {
   0% {
     width: 0%;
-    background: #36315c;
+    background: #0000;
   }
 
   100% {

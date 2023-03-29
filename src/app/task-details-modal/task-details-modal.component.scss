@@ -11,6 +11,11 @@ $primary: map.get($color-config, 'primary');
 $accent: map.get($color-config, 'accent');
 $secondary: map.get($color-config, 'secondary');
 
+.details-card {
+  height: 60vh;
+  width: 60vw;
+}
+
 mat-card-content {
   display: flex;
   flex-direction: row;
