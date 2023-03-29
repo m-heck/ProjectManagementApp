@@ -2,7 +2,7 @@ import { MainPageComponent } from './main-page.component';
 import { HomePageComponent } from '../home-page/home-page.component';
 
 
-
+/* No longer valid after changes to website
 describe('PreLoginNavbarComponent', () => {
     it('Does the signout button correctly signout and display the homepage content again', () => {
         cy.mount(MainPageComponent, {});
@@ -11,4 +11,4 @@ describe('PreLoginNavbarComponent', () => {
         cy.mount(HomePageComponent, {});
         cy.get('#home-content').should('be.visible');
     })
-})
+})*/

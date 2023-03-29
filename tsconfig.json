@@ -23,6 +23,7 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
+    "types": ["node"],
     "lib": [
       "ES2022",
       "dom"
