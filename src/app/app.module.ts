@@ -28,8 +28,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { TaskCardComponent } from './task-card/task-card.component';
 import {MatChipsModule} from '@angular/material/chips';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ProgressCardComponent } from './progress-card/progress-card.component';
+import { TaskDetailsModalComponent } from './task-details-modal/task-details-modal.component';
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import { ProgressCardComponent } from './progress-card/progress-card.component';
     SidebarComponent,
     TaskCardComponent,
     ProgressCardComponent,
+    TaskDetailsModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { ProgressCardComponent } from './progress-card/progress-card.component';
     MatIconModule,
     MatSidenavModule,
     MatChipsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

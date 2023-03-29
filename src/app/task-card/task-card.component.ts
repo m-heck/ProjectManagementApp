@@ -1,4 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TaskDetailsModalComponent } from '../task-details-modal/task-details-modal.component'
+
+interface data {
+  title: string;
+  dueDate: string;
+  tags: string[];
+}
 
 @Component({
   selector: 'app-task-card',
@@ -11,7 +19,18 @@ export class TaskCardComponent {
   @Input() tags: string[];
   completed: boolean = false;
 
+  constructor(private dialogRef: MatDialog) { }
+
+
   showDetails() {
-    alert("Details to be shown here...");
+    
+
+    this.dialogRef.open(TaskDetailsModalComponent, {
+      data: {
+        title: this.title,
+        dueDate: this.dueDate,
+        tags: this.tags
+      }
+    });
   }
 }

@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
-
-
 @Component({
   selector: 'app-inner-navbar',
   templateUrl: './inner-navbar.component.html',
