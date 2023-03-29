@@ -124,6 +124,28 @@ func getCodebyUser(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, gin.H{"code": user.Code})
 }
 
+func updateUserCode(c *gin.Context) {
+	username := c.Param("username")
+	var updateUser user
+
+	if err := c.ShouldBindJSON(&updateUser); err != nil {
+		c.IndentedJSON(http.StatusBadRequest, gin.H{"message": "Invalid input"})
+		return
+	}
+
+	// Find the user to update by their username
+	for i := 0; i < len(users); i++ {
+		if users[i].Username == username {
+			users[i].Code = updateUser.Code
+
+			c.IndentedJSON(http.StatusOK, gin.H{"message": "User code updated", "user": users[i]})
+			return
+		}
+	}
+
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
+}
+
 func main() {
 	/* mux := http.NewServeMux()
 	mux.HandleFunc("/plm/cors", Cors)
