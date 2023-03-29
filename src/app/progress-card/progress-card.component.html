@@ -1,4 +1,4 @@
-<mat-card class="progress-card">
+<mat-card class="progress-card" [ngClass]="{'complete' : percent === '100%'}">
   <mat-card-header>
     <div class="member-name">{{name}}</div>
   </mat-card-header>
@@ -6,8 +6,8 @@
     <div class="progress2 progress-moved">
       <p class="progress-text"><br />Progress: </p>
       <div class="progress-bar" style="--size:{{ percent }}"></div>
+      <div class="bar-bg"></div>
     </div>
-    <div class="bar-bg"></div>
     <div class="display-percent">{{percent}}</div>
   </mat-card-content>
 </mat-card>
