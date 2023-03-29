@@ -60,7 +60,7 @@ func getUser(context *gin.Context) {
 	user, err := getUserByUsername(username)
 
 	//should be != but for unit test cases
-	if err == nil {
+	if err != nil {
 		context.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
 		return
 	}

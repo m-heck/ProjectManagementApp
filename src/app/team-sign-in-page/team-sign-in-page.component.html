@@ -4,7 +4,7 @@
     <!--<mat-card-header>
         <mat-card-title class="margin">{{title}}</mat-card-title>
     </mat-card-header>-->
-    <mat-card-content>
+    <!-- <mat-card-content>
       <mat-tab-group color="accent">
         <mat-tab label="Login">
           <div class="tab">
@@ -19,6 +19,28 @@
             <button mat-raised-button color="accent" class="submit-button" id="loginbutton" (click) ="loginButton()">
                 Login
             </button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content> -->
+    <mat-card-content>
+      <mat-tab-group color="accent">
+        <mat-tab label="Login">
+          <div class="tab">
+            <form #userForm="ngForm" (ngSubmit)="signInButton(userForm.value)">
+            <mat-form-field color="accent" class="example-full-width first-input">
+              <mat-label>Username</mat-label>
+              <input type="text" color="accent" matInput placeholder="Username" name="username" ngModel>
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input type="text" color="accent" matInput placeholder="Password" name="password" ngModel>
+            </mat-form-field>
+           <!-- <button mat-raised-button color="accent" class="login-button" id="loginbutton" (click) ="loginButton()">
+                Login
+            </button> -->
+            <input type="submit" value="Login" color="accent" class="submit-button">
+            </form>
           </div>
         </mat-tab>
       </mat-tab-group>
