@@ -3,13 +3,16 @@ import { Router } from '@angular/router';
 import { ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { TeamSignInPageComponent } from '../team-sign-in-page/team-sign-in-page.component';
+import * as myUser from '..//user_instance';
+
 
 interface User {
-  username: String,
-  name: String,
-  email: String,
-  contact: String,
-  password: String
+  username: "",
+  name: "",
+  email: "",
+  contact: "",
+  password: "",
+  code: ""
 }
 
 @Component({
@@ -32,5 +35,6 @@ export class InnerNavbarComponent {
   }
 
   //create an users array from the json object
-  //user: User = usersData;
+  //username: String = myUser.user_instance.
+  //hello: number = myUser.user_instance.
 }
