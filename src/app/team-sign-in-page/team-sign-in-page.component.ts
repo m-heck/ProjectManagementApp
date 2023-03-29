@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 //import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
 import { SignInPageComponent } from '../sign-in-page/sign-in-page.component';
-import * as fs from "fs";
 
 declare var require: any;
 @Component({
