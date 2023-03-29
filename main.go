@@ -112,6 +112,18 @@ func getUserbyCode(c *gin.Context) {
 	c.JSON(http.StatusOK, matchedUsers)
 }
 
+func getCodebyUser(c *gin.Context) {
+	username := c.Param("username")
+	user, err := getUserByUsername(username)
+
+	if err != nil {
+		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
+		return
+	}
+
+	c.IndentedJSON(http.StatusOK, gin.H{"code": user.Code})
+}
+
 func main() {
 	/* mux := http.NewServeMux()
 	mux.HandleFunc("/plm/cors", Cors)

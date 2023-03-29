@@ -208,3 +208,32 @@ func TestGetUserByCode(t *testing.T) {
 	}
 
 }
+
+func TestGetCodebyUser(t *testing.T) {
+	// Create a new router and add the getCodebyUser route to it
+	router := gin.New()
+	router.GET("/users/:username/code", getCodebyUser)
+
+	// Create a new request for a user's code
+	req, err := http.NewRequest("GET", "/users/gatoralanw/code", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	// Create a response recorder to record the response from the server
+	recorder := httptest.NewRecorder()
+
+	// Send the request to the server
+	router.ServeHTTP(recorder, req)
+
+	// Check the response status code is 200 OK
+	if recorder.Code != http.StatusOK {
+		t.Errorf("Expected status code %d but got %d", http.StatusOK, recorder.Code)
+	}
+
+	// Check the response body contains the expected code
+	expectedBody := `{"code":"0000"}`
+	if recorder.Body.String() == expectedBody {
+		t.Errorf("Expected body %q but got %q", expectedBody, recorder.Body.String())
+	}
+}
