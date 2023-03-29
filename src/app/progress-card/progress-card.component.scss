@@ -13,14 +13,15 @@ $secondary: map.get($color-config, 'secondary');
 
 .progress-card {
   width: 100%;
-  height: 150px;
+  height: 14vh;
   z-index: 0;
   display: block;
   flex-direction: column;
-  justify-content: left;
   margin-bottom: 20px;
   margin-left: 10px;
   box-shadow: inset;
+  border-radius: 2vh;
+  padding-right:0px;
 
   .member-name {
     font-size: 24px;
@@ -36,24 +37,49 @@ $secondary: map.get($color-config, 'secondary');
     margin-right: auto;
     height: 20px;
   }
+
+  .progress-text{
+      font-size: 18px;
+  }
+
+  .display-percent {
+    display: inline-block;
+    padding-left: 10px;
+    font-size: 22px;
+    margin-right: 0px;
+    padding-right: 0;
+  }
 }
 
 .progress2 {
+  display: inline-block;
   border-radius: 30px;
   background-color: #fff;
+  width: 80%;
 }
 
-.progress-bar2 {
+.bar-bg {
+  display: inline-block;
+  height: 6px;
+  border-radius: 3px;
+  background-color: mat.get-color-from-palette($accent, 200);
+  width: 80%;
+}
+
+.progress-bar {
   height: 18px;
   border-radius: 30px;
   transition: 0.4s linear;
   transition-property: width, background-color;
 }
 
-.progress-moved .progress-bar2 {
+.progress-moved .progress-bar {
   background-color: #34fa76;
   animation: progress 4s forwards;
+  display: inline-block;
 }
+
+
 
 @keyframes progress {
   0% {

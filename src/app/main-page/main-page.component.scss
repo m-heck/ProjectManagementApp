@@ -13,7 +13,7 @@ $secondary: map.get($color-config, 'secondary');
 
 .container {
   height: auto;
-  background-color: #fdfbf9;
+  background-color: mat.get-color-from-palette($primary, 100);
 }
 
 .signOut {
@@ -33,16 +33,12 @@ $secondary: map.get($color-config, 'secondary');
 }
 
 .teamSidebar {
-  width: 25vw;
+  width: 30vw;
   height: 100%;
   position: relative;
   background-color: mat.get-color-from-palette($accent, 200);
-  justify-content: left;
-  padding: 0,0,0,0;
-}
-
-.team-member-progress{
-    height: 10vh;
+  border-top-left-radius: 4vw;
+  border-top-right-radius: 4vw;
 }
 
 .progress-title{

@@ -4,8 +4,10 @@
   </mat-card-header>
   <mat-card-content>
     <div class="progress2 progress-moved">
-      <p><br/>Progress: </p>
-      <div class="progress-bar2" style="--size: {{percent}}"></div>
+      <p class="progress-text"><br />Progress: </p>
+      <div class="progress-bar" style="--size:{{ percent }}"></div>
     </div>
+    <div class="bar-bg"></div>
+    <div class="display-percent">{{percent}}</div>
   </mat-card-content>
 </mat-card>

@@ -16,7 +16,9 @@ interface user {
 
 export class MainPageComponent {
 
-  users: user[] = [{ name: 'Alan', percent: "23%" }, { name: 'Maren', percent: "76%" }, { name: 'Jerry', percent: "45%" }, {name: 'Max', percent: "100%"}];
+  users: user[] = [{ name: 'Alan', percent: "23%" }, { name: 'Maren', percent: "76%" },
+    { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }, { name: 'Alan', percent: "23%" },
+    { name: 'Maren', percent: "76%" }, { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }];
 
   constructor(private _router: Router) { }
 
