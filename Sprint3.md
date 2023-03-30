@@ -161,6 +161,8 @@ Unit tests that sets up a test context in which it creates a mock query paramate
     }
     c.IndentedJSON(http.StatusOK, gin.H{"code": user.Code})
 }
+```
+
 ### 2. Unit Test: GetCodebyUser() function, get Codes that the User stores
 Unit Test that checks in the database for all users and looks for a specific user and retrieves all codes for that user. IT checks the status and whether or not it matches the expected value
 ```
