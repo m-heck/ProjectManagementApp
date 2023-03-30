@@ -150,7 +150,7 @@ successful. The last task we worked on but did not finish was displaying the spe
 transferring this data between the components.
 # 3. Backend Unit Tests
 Our backend unit tests include multiple tests that test the functions in our main.go file that contains the API calls to the front-end. The first test (getUserByCode) checks the database of users to see whether or not they have the code. It retrieves the code to find the corresponding username. Our second test (getCodeByUser) retrieves the user data to find the code. Our last test, which we worked on during this sprint, is (updateUserCode). This test updates the user's codes if they want to add, remove or change their code.
-### Unit Test: getUserbyCode() function, Gets Code from username
+### 1. Unit Test: getUserbyCode() function, Gets Code from username
 Unit tests that sets up a test context in which it creates a mock query paramater that calls getUserbyCode and comapares it to the current database and see if it finds the correct user
 ```func getCodebyUser(c *gin.Context) {
     username := c.Param("username")
@@ -161,7 +161,7 @@ Unit tests that sets up a test context in which it creates a mock query paramate
     }
     c.IndentedJSON(http.StatusOK, gin.H{"code": user.Code})
 }
-###Unit Test: GetCodebyUser() function, get Codes that the User stores
+### 2. Unit Test: GetCodebyUser() function, get Codes that the User stores
 Unit Test that checks in the database for all users and looks for a specific user and retrieves all codes for that user. IT checks the status and whether or not it matches the expected value
 ```
 func TestGetCodebyUser(t *testing.T) {
@@ -193,8 +193,10 @@ func TestGetCodebyUser(t *testing.T) {
 	}
 }
 ```
-###Unit Test: updateUserCode() function, allows users to update the code they have allowing to leave and join rooms
-Unit Test that allows users to change their information such as code. This allows them to change codes and leave rooms. We checked it with a value to see if it changeed. 
+
+### 3. Unit Test: updateUserCode() function, allows users to update the code they have allowing to leave and join rooms
+Unit Test that allows users to change their information such as code. This allows them to change codes and leave rooms. We checked it with a value to see if it changed.
+
 ```
 func TestUpdateUserCode(t *testing.T) {
 	// Initialize Gin context
@@ -262,6 +264,7 @@ func TestUpdateUserCode(t *testing.T) {
 		t.Errorf("User's code not updated")
 	}
 }
+
 
 # 4. Backend API Documentation
 In order to use our api you must run the main.go file in your terminal by typing go run main.go. It should then be running on localhost 3000. Our api currently consists of three main methods: getUsers, getUserByUsername, and post. Get users returns a list of every single user in json format stored in the backend and can be accessed using the link localhost:3000/users. Get user by username allows you to look up a specific user by their username and returns that users data in json format. It can be accessed using the link localhost:3000/users/:username with username being the specific username you want to look up. Finally, post allows someone to add a user to the backend database. It takes two parameters the first is the link which is http://localhost:3000/users and the second is the user object itself. The backend expects every user object to contain a username, name, email, phone nmber, password, and project join code property so ensure that the user object you are passing in contains those properties or else post will not add the user properly. When looking for a valid login you must pass in username and password parameters into the call request
