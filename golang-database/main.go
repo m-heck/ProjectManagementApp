@@ -100,6 +100,64 @@ func (d *Driver) Write(collection, resource string, v interface{}) error {
 
 }
 
+func (d *Driver) Upload(collection, resource string, v interface{}) error {
+	if collection == "" {
+		return fmt.Errorf("Missing Collection - no place to save record!")
+	}
+
+	if resource == "" {
+		return fmt.Errorf("Missing resource - unable to save record (no name)!")
+	}
+
+	mutex := d.getOrCreateMutex(collection)
+	mutex.Lock()
+	defer mutex.Unlock()
+
+	dir := filepath.Join(d.dir, collection)
+	fnlPath := filepath.Join(dir, resource+".json")
+	tmpPath := fnlPath + ".tmp"
+
+	if err := os.MkdirAll(dir, 0755); err != nil {
+		return err
+	}
+
+	b, err := json.MarshalIndent(v, "", "\t")
+	if err != nil {
+		return err
+	}
+	b = append(b, byte('\n'))
+
+	if err := ioutil.WriteFile(tmpPath, b, 0644); err != nil {
+		return err
+	}
+
+	return os.Rename(tmpPath, fnlPath)
+
+}
+
+func (d *Driver) Scanner(collection, resource string, v interface{}) error {
+
+	if collection == "" {
+		return fmt.Errorf("Missing collection  - no place to save record!")
+	}
+
+	if resource == "" {
+		return fmt.Errorf("Missing resource - unable to save record (no name)!")
+	}
+
+	record := filepath.Join(d.dir, collection, resource)
+
+	if _, err := stat(record); err != nil {
+		return err
+	}
+
+	b, err := ioutil.ReadFile(record + ".json")
+	if err != nil {
+		return err
+	}
+	return json.Unmarshal(b, &v)
+}
+
 func (d *Driver) Read(collection, resource string, v interface{}) error {
 
 	if collection == "" {
