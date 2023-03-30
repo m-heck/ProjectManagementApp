@@ -28,6 +28,14 @@ This sprint, we started implementing the main features of our app that would be 
   - One card for each member who is part of the same team
   - Includes each team member's name and displays a progress bar that indicates that person's progress with their tasks
 
+### Backend
+This sprint, we started working on the get calls of our api so the front end is able to use the information from the back end to do certain tasks:
+The first task we worked on was getting the login page to correctly work. When the user types in their username the front end will call the backend to see
+if that username exists within the database. If it does not then it will throw an error. This is the same case for the password. If the username exists
+but the password entered was wrong, then it will throw an error. If both username exists and the password entered was correct then the login will be
+successful. The last task we worked on but did not finish was displaying the specific user data once they login. We are currently in the process of 
+transferring this data between the components.
+
 # 2. Frontend Unit Tests
 Note: some previous unit tests for the frontend have become unnecessary due to changes in the code, so they have been commented out or deleted.
 
@@ -141,13 +149,7 @@ it('should contain a link to sign out', () => {
   cy.get('.sidebar-content ul li').eq(2).contains('Sign Out');
 });
 ```
-### Backend
-This sprint, we started working on the get calls of our api so the front end is able to use the information from the back end to do certain tasks:
-The first task we worked on was getting the login page to correctly work. When the user types in their username the front end will call the backend to see
-if that username exists within the database. If it does not then it will throw an error. This is the same case for the password. If the username exists
-but the password entered was wrong, then it will throw an error. If both username exists and the password entered was correct then the login will be
-successful. The last task we worked on but did not finish was displaying the specific user data once they login. We are currently in the process of 
-transferring this data between the components.
+
 # 3. Backend Unit Tests
 Our backend unit tests include multiple tests that test the functions in our main.go file that contains the API calls to the front-end. The first test (getUserByCode) checks the database of users to see whether or not they have the code. It retrieves the code to find the corresponding username. Our second test (getCodeByUser) retrieves the user data to find the code. Our last test, which we worked on during this sprint, is (updateUserCode). This test updates the user's codes if they want to add, remove or change their code.
 ### 1. Unit Test: getUserbyCode() function, Gets Code from username
