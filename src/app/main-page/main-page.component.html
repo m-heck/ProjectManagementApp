@@ -1,6 +1,9 @@
 <div class="container">
   <app-inner-navbar></app-inner-navbar>
-  <div class="whitespace"></div>
+  <div class="add-task-container">
+    <div class="whitespace"></div>
+    <button class="add-task" mat-raised-button color="accent" (click)="showModal()">Add Task</button>
+  </div>
   <div class="main-content">
     <mat-card class="teamSidebar">
       <app-progress-card *ngFor="let user of users"

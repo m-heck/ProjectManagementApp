@@ -32,6 +32,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProgressCardComponent } from './progress-card/progress-card.component';
 import { TaskDetailsModalComponent } from './task-details-modal/task-details-modal.component';
+import { AddTaskModalComponent } from './add-task-modal/add-task-modal.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { TaskDetailsModalComponent } from './task-details-modal/task-details-mod
     TaskCardComponent,
     ProgressCardComponent,
     TaskDetailsModalComponent,
+    AddTaskModalComponent,
   ],
   imports: [
     BrowserModule,

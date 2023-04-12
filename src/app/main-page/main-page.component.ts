@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+
 
 interface user {
   name: string;
@@ -36,4 +38,7 @@ export class MainPageComponent {
     this._router.navigate(['']);
     alert("You have logged out.");
   }
+
+  showModal() {
+  };
 }

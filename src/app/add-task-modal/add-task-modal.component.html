@@ -1,0 +1,23 @@
+<mat-card class="details-card">
+    <mat-card-header>
+      <span class="modal-title">New Task</span>
+    </mat-card-header>
+    <form #taskForm="ngForm" id="form-container">
+      <mat-form-field color="accent" class="example-full-width first-input">
+        <mat-label>Task name</mat-label>
+        <input type="text" matInput placeholder="Task name" name="taskName" required>
+      </mat-form-field>
+      <mat-form-field color="accent" class="example-full-width">
+        <mat-label>Due date</mat-label>
+        <input type="date" matInput placeholder="Due date" name="dueDate" required>
+      </mat-form-field>
+      <mat-checkbox name="completedStatus">Completed</mat-checkbox>
+      <mat-form-field color="accent" class="example-full-width">
+        <mat-label>Add tags</mat-label>
+        <input type="text" matInput placeholder="New tag">
+      </mat-form-field>
+    </form>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Save</button>
+    </mat-card-actions>
+  </mat-card>

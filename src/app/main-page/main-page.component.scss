@@ -52,7 +52,8 @@ $secondary: map.get($color-config, 'secondary');
 }
 
 .whitespace {
-  margin-top: 70px;
+  margin-top: 90px;
+  width: 80%;
 }
 
 .main-content {
@@ -64,4 +65,12 @@ $secondary: map.get($color-config, 'secondary');
 .tasks-section {
   width: 100%;
   margin: 0 0 0 3vw;
+}
+
+.add-task-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  margin: 0 7vw 0 0;
 }
