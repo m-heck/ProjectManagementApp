@@ -4,13 +4,11 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\inner-navbar",
-    "\\src\\app\\main-page",
-    "\\src\\app\\progress-card",
+    "\\src\\app\\pre-login-navbar",
     "\\src\\app\\sign-in-page",
-    "\\src\\app\\task-card",
     "\\src\\app\\task-details-modal",
     "\\src\\app\\team-sign-in-page"
   ],
-  "SelectedNode": "\\src\\app\\team-sign-in-page\\team-sign-in-page.component.ts",
+  "SelectedNode": "\\src\\app\\task-details-modal\\task-details-modal.component.html",
   "PreviewInSolutionExplorer": false
 }

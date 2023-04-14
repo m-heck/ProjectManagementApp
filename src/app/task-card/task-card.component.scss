@@ -57,3 +57,8 @@ mat-card-header {
 mat-chip{
     background-color: mat.get-color-from-palette($primary, 50);
 }
+
+.details-card {
+  height: 60vh;
+  width: 60vw;
+}

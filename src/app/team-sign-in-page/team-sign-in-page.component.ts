@@ -38,10 +38,12 @@ export class TeamSignInPageComponent {
 
   //performs the get request
   signInButton(users: {username: string, password: string} ){
+
     //const fs = require('fs')
-    let count = 0;
-    let count2 = 0;
+    let validPassword = false;
+    let validUsername = false;
     const temp = this._router;
+
     fetch('http://localhost:3000/users')
     .then(function(response) {
       return response.json();
@@ -53,9 +55,8 @@ export class TeamSignInPageComponent {
         arr.push(myJson[i]);
       }
 
-      //console.log(arr);
-
       console.log(users.username)
+
       //see if the username exists
       for(var n = 0; n < arr.length; n++)
       {
@@ -63,33 +64,31 @@ export class TeamSignInPageComponent {
         {
           if(arr[n]["password"] == users.password)
           {
-              count2++;
-              person.username = arr[n]["username"];
-              person.name = arr[n]["name"];
-              person.phone = arr[n]["contact"];
-              person.email = arr[n]["email"];
-              person.password = arr[n]["password"];
-              person.code = arr[n]["code"];
-              //console.log(JSON.parse(fs.readFileSync('user_instance.json').toString()))
-              //const data = JSON.parse(fs.readFileSync('user_instance.json').toString())
-              //data.name = "lol"
+            validPassword = true;
+            break;
           }
-          count++;
         }
       }
-      if(count == 0)
-      {
-          alert("Invalid login.");
+
+
+      if (validPassword) {
+        person.username = arr[n]["username"];
+        person.name = arr[n]["name"];
+        person.phone = arr[n]["contact"];
+        person.email = arr[n]["email"];
+        person.password = arr[n]["password"];
+        person.code = arr[n]["code"];
+
+        temp.navigate(['/main']);
+        alert("Login successful.");
       }
-      else if(count2 == 0)
-      {
-        alert("Invalid Password.");
+      else if (validUsername) {
+        alert("Invalid password.");
       }
-      else
-      {
-          temp.navigate(['/main']);
-          alert("Login successful.");
+      else {
+        alert("Invalid login.");
       }
+
     });
   }
 
