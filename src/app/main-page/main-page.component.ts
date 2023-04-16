@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-
+import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.component';
 
 interface user {
   name: string;
@@ -32,13 +32,15 @@ export class MainPageComponent {
     { title: "Start OS project", dueDate: "03-31-2023", tags: "['project', 'os', 'memory management', 'homework']", desc: "Description." },
     { title: "Buy groceries", dueDate: "03-31-2023", tags: "['food', 'errand','find carpool']", desc: "Description." }  ];
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private dialogRef: MatDialog) { }
 
   signOutButton(): void {
     this._router.navigate(['']);
     alert("You have logged out.");
   }
 
-  showModal() {
+  showAddTask() {
+    this.dialogRef.open(AddTaskModalComponent, {
+    });
   };
 }
