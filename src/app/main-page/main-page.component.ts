@@ -22,7 +22,6 @@ interface task {
 
 
 export class MainPageComponent {
-
   users: user[] = [{ name: 'Alan', percent: "23%" }, { name: 'Maren', percent: "76%" },
     { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }, { name: 'Alan', percent: "23%" },
     { name: 'Maren', percent: "76%" }, { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }];
@@ -31,6 +30,8 @@ export class MainPageComponent {
     { title: "Take SWE Exam", dueDate: "03-30-2023", tags: "['exam', 'swe', 'project']", desc: "Description." },
     { title: "Start OS project", dueDate: "03-31-2023", tags: "['project', 'os', 'memory management', 'homework']", desc: "Description." },
     { title: "Buy groceries", dueDate: "03-31-2023", tags: "['food', 'errand','find carpool']", desc: "Description." }  ];
+
+    joinCode = 5555;
 
   constructor(private _router: Router, private dialogRef: MatDialog) { }
 
