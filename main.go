@@ -24,6 +24,19 @@ func CORSMiddleware() gin.HandlerFunc {
 	}
 }
 
+type Team struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type Task struct {
+	ID          string `json:"id"`
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	Completed   bool   `json:"completed"`
+}
+
+// Update the user struct to include the new structs as fields
 type user struct {
 	Username string `json:"username"`
 	Name     string `json:"name"`
@@ -31,6 +44,8 @@ type user struct {
 	Contact  string `json:"contact"`
 	Password string `json:"password"`
 	Code     string `json:"code"`
+	Teams    []Team `json:"teams"`
+	Tasks    []Task `json:"tasks"`
 }
 
 var users = []user{
@@ -146,6 +161,68 @@ func updateUserCode(c *gin.Context) {
 	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
 }
 
+func getTeamsByUser(c *gin.Context) {
+	username := c.Param("username")
+	user, err := getUserByUsername(username)
+
+	if err != nil {
+		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
+		return
+	}
+
+	c.IndentedJSON(http.StatusOK, user.Teams)
+}
+
+func addTeamToUser(c *gin.Context) {
+	username := c.Param("username")
+	user, err := getUserByUsername(username)
+
+	if err != nil {
+		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
+		return
+	}
+
+	var newTeam Team
+	if err := c.BindJSON(&newTeam); err != nil {
+		return
+	}
+
+	user.Teams = append(user.Teams, newTeam)
+
+	c.IndentedJSON(http.StatusCreated, newTeam)
+}
+
+func getTasksByUser(c *gin.Context) {
+	username := c.Param("username")
+	user, err := getUserByUsername(username)
+
+	if err != nil {
+		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
+		return
+	}
+
+	c.IndentedJSON(http.StatusOK, user.Tasks)
+}
+
+func addTaskToUser(c *gin.Context) {
+	username := c.Param("username")
+	user, err := getUserByUsername(username)
+
+	if err != nil {
+		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "User not found"})
+		return
+	}
+
+	var newTask Task
+	if err := c.BindJSON(&newTask); err != nil {
+		return
+	}
+
+	user.Tasks = append(user.Tasks, newTask)
+
+	c.IndentedJSON(http.StatusCreated, newTask)
+}
+
 func main() {
 	/* mux := http.NewServeMux()
 	mux.HandleFunc("/plm/cors", Cors)
@@ -156,5 +233,9 @@ func main() {
 	router.GET("/users/:username", getUser)
 	router.PATCH("/users/:username", toggleUserStatus)
 	router.POST("/users", addUser)
+	router.GET("/users/:username/teams", getTeamsByUser)
+	router.POST("/users/:username/teams", addTeamToUser)
+	router.GET("/users/:username/tasks", getTasksByUser)
+	router.POST("/users/:username/tasks", addTaskToUser)
 	router.Run("localhost:3000")
 }
