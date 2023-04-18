@@ -29,8 +29,6 @@ button:hover {
   background-color: mat.get-color-from-palette($primary, 300);
 }
 
-
-
 .navbar {
   position: fixed;
   top: 0;
@@ -41,8 +39,8 @@ button:hover {
 
 .navbar-title {
   flex-grow: 1;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-family: 'ModerneSans'
 }
 
 .navbar-progress {
