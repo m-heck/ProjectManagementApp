@@ -39,14 +39,14 @@ export class SignInPageComponent {
 
   }
 
-  teamSignUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, code: string} ){
-    console.log(users);
-    this.http.post('http://localhost:3000/users', users)
+  teamSignUpButton(teams: {id: "3345", teamname: "LOL", members: { username: string, name: string, phonenumber: string, email: string, password: string, code: string}}){
+    console.log(teams);
+    this.http.post('http://localhost:3000/teams', teams)
     .subscribe((res) => {
       console.log(res);
     });
     this._router.navigate(['/main']);
-    const message = users.name + " has been signed up!";
+    const message = teams.teamname + " has been created!";
     alert(message);
   }
   

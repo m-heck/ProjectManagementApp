@@ -56,12 +56,16 @@ var users = []user{
 }
 
 var teams = []Team{
-	{ID: "6969", Name: "The Real ML Group", Members: []user{users[0], users[1]}},
-	{ID: "6970", Name: "The AI Squad", Members: []user{users[1], users[2]}},
+	{ID: "6969", Name: "TheRealMLGroup", Members: []user{users[0], users[1]}},
+	{ID: "6970", Name: "TheAISquad", Members: []user{users[1], users[2]}},
 }
 
 func getUsers(context *gin.Context) {
 	context.IndentedJSON(http.StatusOK, users)
+}
+
+func getTeams(context *gin.Context) {
+	context.IndentedJSON(http.StatusOK, teams)
 }
 
 func addUser(context *gin.Context) {
@@ -74,6 +78,18 @@ func addUser(context *gin.Context) {
 	users = append(users, newUser)
 
 	context.IndentedJSON(http.StatusCreated, newUser)
+}
+
+func addTeam(context *gin.Context) {
+	var newTeam Team
+
+	if err := context.BindJSON(&newTeam); err != nil {
+		return
+	}
+
+	teams = append(teams, newTeam)
+
+	context.IndentedJSON(http.StatusCreated, newTeam)
 }
 
 func getUser(context *gin.Context) {
@@ -247,10 +263,12 @@ func main() {
 	router := gin.Default()
 	router.Use(CORSMiddleware())
 	router.GET("/users", getUsers)
+	router.GET("/teams", getTeams)
 	router.GET("/users/:username", getUser)
 	router.PATCH("/users/:username", toggleUserStatus)
 	router.POST("/users", addUser)
 	router.GET("/users/:username/tasks", getTasksByUser)
+	router.POST("/teams", addTeam)
 	router.POST("/users/:username/tasks", addTaskToUser)
 	router.POST("/teams/:id/members/:username", addMemberToTeamByID)
 	router.GET("/teams/:id/members", getUsersInTeam)
