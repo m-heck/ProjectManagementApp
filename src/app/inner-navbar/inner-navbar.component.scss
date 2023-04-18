@@ -40,7 +40,8 @@ button:hover {
 .navbar-title {
   flex-grow: 1;
   font-size: 1.8rem;
-  font-family: 'ModerneSans'
+  font-family: 'ModerneSans';
+  cursor: pointer;
 }
 
 .navbar-progress {

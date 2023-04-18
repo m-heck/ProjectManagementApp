@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ManageMemberTagsComponent } from '../manage-member-tags/manage-member-tags.component';
+import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.component';
 
 
 @Component({
@@ -23,4 +24,8 @@ export class SidebarComponent {
     });
   };
 
+  showAddTask() {
+    this.dialogRef.open(AddTaskModalComponent, {
+    });
+  }
 }

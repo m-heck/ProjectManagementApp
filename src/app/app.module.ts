@@ -35,6 +35,7 @@ import { TaskDetailsModalComponent } from './task-details-modal/task-details-mod
 import { AddTaskModalComponent } from './add-task-modal/add-task-modal.component';
 import { ManageMemberTagsComponent } from './manage-member-tags/manage-member-tags.component';
 import { MemberTagsComponent } from './member-tags/member-tags.component';
+import { TimelinePageComponent } from './timeline-page/timeline-page.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { MemberTagsComponent } from './member-tags/member-tags.component';
     AddTaskModalComponent,
     ManageMemberTagsComponent,
     MemberTagsComponent,
+    TimelinePageComponent,
   ],
   imports: [
     BrowserModule,

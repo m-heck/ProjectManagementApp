@@ -1,6 +1,6 @@
 <header class="navbar">
     <mat-toolbar color="accent">
-      <div class="navbar-title">
+      <div class="navbar-title" (click)="showMain()">
         Project Name
       </div>
       <div class="navbar-progress">
@@ -8,7 +8,7 @@
       </div>
       <mat-progress-bar mode="determinate" value="50" class="bar"></mat-progress-bar>
       <div class="navbar-button">
-        <button mat-button>Timeline</button>
+        <button mat-button  (click)="goToTimeline()">Timeline</button>
         <button id="signoutButton" mat-button (click)="signOutButton()">Sign Out</button>
       </div>
       <div class="navbar-menu">
