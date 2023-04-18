@@ -26,7 +26,7 @@ export class SignInPageComponent {
   constructor(private http: HttpClient, private _router: Router) { }
 
   signUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, code: string} ){
-    console.log(users);
+    //console.log(users);
     this.http.post('http://localhost:3000/users', users)
     .subscribe((res) => {
       console.log(res);
@@ -39,15 +39,15 @@ export class SignInPageComponent {
 
   }
 
-  teamSignUpButton(teams: {id: "3345", teamname: "LOL", members: { username: string, name: string, phonenumber: string, email: string, password: string, code: string}}){
+  teamSignUpButton(teams: {members: {Username: "gatoralanw", Name: "Alan", Email: "a.wang@ufl.edu", Contact: "3525141846", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"}, teamname: string, id: string}){
     console.log(teams);
-    this.http.post('http://localhost:3000/teams', teams)
+    this.http.post('http://localhost:3000/teams/', teams)
     .subscribe((res) => {
       console.log(res);
     });
-    this._router.navigate(['/main']);
-    const message = teams.teamname + " has been created!";
-    alert(message);
+    //this._router.navigate(['/main']);
+    //const message = teams.teamname + " has been created!";
+    //alert(message);
   }
   
   /*

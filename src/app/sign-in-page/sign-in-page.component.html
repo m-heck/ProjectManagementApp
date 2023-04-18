@@ -68,7 +68,7 @@
         </mat-tab>
         <mat-tab label="Team Manager Sign Up">
           <div class="tab">
-            <form #userForm="ngForm" (ngSubmit)="teamSignUpButton(userForm.value)">
+            <form #userForm2="ngForm" (ngSubmit)="teamSignUpButton(userForm2.value)">
             <mat-form-field color="accent" class="example-full-width first-input">
               <mat-label>Username</mat-label>
               <input type="text" color="accent" matInput placeholder="Username" name="username" ngModel>
@@ -92,6 +92,10 @@
             <mat-form-field color="accent" class="example-full-width">
               <mat-label>Team name</mat-label>
               <input type="text" color="accent" matInput placeholder="Teamname" name="teamname" ngModel>
+            </mat-form-field>
+            <mat-form-field color="accent" class="example-full-width">
+              <mat-label>Team Join Code</mat-label>
+              <input type="text" color="accent" matInput placeholder="Code" name="code" ngModel>
             </mat-form-field>
             <input type="submit" value="Sign Up" color="accent" class="submit-button">
             </form>

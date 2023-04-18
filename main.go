@@ -25,9 +25,9 @@ func CORSMiddleware() gin.HandlerFunc {
 }
 
 type Team struct {
-	ID      string `json:"id"`
-	Name    string `json:"name"`
 	Members []user `json:"members"`
+	Name    string `json:"name"`
+	ID      string `json:"id"`
 }
 
 type Task struct {
@@ -56,8 +56,8 @@ var users = []user{
 }
 
 var teams = []Team{
-	{ID: "6969", Name: "TheRealMLGroup", Members: []user{users[0], users[1]}},
-	{ID: "6970", Name: "TheAISquad", Members: []user{users[1], users[2]}},
+	{Members: []user{users[0], users[1]}, Name: "TheRealMLGroup", ID: "6969"},
+	{Members: []user{users[1], users[2]}, Name: "TheAISquad", ID: "6970"},
 }
 
 func getUsers(context *gin.Context) {
@@ -268,6 +268,7 @@ func main() {
 	router.PATCH("/users/:username", toggleUserStatus)
 	router.POST("/users", addUser)
 	router.GET("/users/:username/tasks", getTasksByUser)
+	router.Use(CORSMiddleware())
 	router.POST("/teams", addTeam)
 	router.POST("/users/:username/tasks", addTaskToUser)
 	router.POST("/teams/:id/members/:username", addMemberToTeamByID)
