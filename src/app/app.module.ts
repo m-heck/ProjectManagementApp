@@ -34,6 +34,7 @@ import { ProgressCardComponent } from './progress-card/progress-card.component';
 import { TaskDetailsModalComponent } from './task-details-modal/task-details-modal.component';
 import { AddTaskModalComponent } from './add-task-modal/add-task-modal.component';
 import { ManageMemberTagsComponent } from './manage-member-tags/manage-member-tags.component';
+import { MemberTagsComponent } from './member-tags/member-tags.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { ManageMemberTagsComponent } from './manage-member-tags/manage-member-ta
     TaskDetailsModalComponent,
     AddTaskModalComponent,
     ManageMemberTagsComponent,
+    MemberTagsComponent,
   ],
   imports: [
     BrowserModule,
