@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 //import { DataService } from '../data.service';
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { SignInPageComponent } from '../sign-in-page/sign-in-page.component';
 //import * as fs from "fs";
 
@@ -34,7 +34,7 @@ export class TeamSignInPageComponent {
   //public password: string = '';
   //public email: string = '';
 
-  constructor(private http: HttpClient, private _router: Router) { }
+  constructor(private _router: Router) { }
 
   //performs the get request
   signInButton(users: {username: string, password: string} ){

@@ -29,14 +29,14 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { TaskCardComponent } from './task-card/task-card.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import { DialogService } from '../app/dialog.service';
 import { ProgressCardComponent } from './progress-card/progress-card.component';
 import { TaskDetailsModalComponent } from './task-details-modal/task-details-modal.component';
 import { AddTaskModalComponent } from './add-task-modal/add-task-modal.component';
 import { ManageMemberTagsComponent } from './manage-member-tags/manage-member-tags.component';
 import { MemberTagsComponent } from './member-tags/member-tags.component';
 import { TimelinePageComponent } from './timeline-page/timeline-page.component';
-
 
 @NgModule({
   declarations: [
@@ -75,7 +75,7 @@ import { TimelinePageComponent } from './timeline-page/timeline-page.component';
     MatCheckboxModule,
     MatDialogModule,
   ],
-  providers: [DataService],
+  providers: [DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
