@@ -8,4 +8,10 @@ import { Component, Input } from '@angular/core';
 export class MemberTagsComponent {
   @Input() name: string;
   @Input() tags: string[];
+
+  removeTag(remove:string): void {
+    this.tags.forEach((item, index) => {
+      if (item === remove) this.tags.splice(index, 1);
+    });
+  }
 }

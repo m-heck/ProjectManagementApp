@@ -1,0 +1,64 @@
+// for theme importing
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import '../../styles.scss';
+
+// load the color config
+$color-config: mat.get-color-config($project-management-app-theme);
+
+// get the chosen palette : primary
+$primary: map.get($color-config, 'primary');
+$accent: map.get($color-config, 'accent');
+$secondary: map.get($color-config, 'secondary');
+
+.member-card {
+  display: flex;
+  flex-direction: row;
+  width: 40vw;
+  height: 14vh;
+  margin: 0.5vh 0.5vw 1vh 0.5vw;
+
+  .name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: auto;
+  }
+
+  .add {
+    margin: 1vh 0 1vh 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}
+
+mat-card-header{
+    margin: 0 0 1vh 0;
+}
+
+mat-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+button {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin: 2vh 0 0 0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form-container {
+  margin: 1vh 0 1vh 0;
+  flex-direction: row;
+  width: 10vw
+}

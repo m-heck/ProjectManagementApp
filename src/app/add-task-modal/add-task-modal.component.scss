@@ -29,6 +29,10 @@ $secondary: map.get($color-config, 'secondary');
   width: 100%;
 }
 
+mat-card-header{
+  margin: 0 0 2vh 0;
+}
+
 .first-input {
   margin-bottom: 16px;
 }
