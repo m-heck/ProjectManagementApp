@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-task-modal.component.scss']
 })
 export class AddTaskModalComponent {
-
+  
 }
