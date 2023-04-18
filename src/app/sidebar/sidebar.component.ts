@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ManageMemberTagsComponent } from '../manage-member-tags/manage-member-tags.component';
 
 
 @Component({
@@ -9,11 +11,16 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent {
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private dialogRef: MatDialog) { }
 
   signOutButton(): void {
     this._router.navigate(['']);
     alert("You have logged out.");
   }
+
+  showManageTags() {
+    this.dialogRef.open(ManageMemberTagsComponent, {
+    });
+  };
 
 }
