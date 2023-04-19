@@ -33,7 +33,7 @@ export class MainPageComponent {
     { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }, { name: 'Alan', percent: "23%" },
     { name: 'Maren', percent: "76%" }, { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }]; */
     users: user[] = [];
-
+    
   tasks: task[] = [{ title: 'Finish SWE Homework', dueDate: "03-29-2023", tags: ['programming', 'swe'], desc: "Description." },
     { title: "Take SWE Exam", dueDate: "03-30-2023", tags: ['exam', 'swe', 'project'], desc: "Description." },
     { title: "Start OS project", dueDate: "03-31-2023", tags: ['project', 'os', 'memory management'], desc: "Description." },
@@ -45,6 +45,10 @@ export class MainPageComponent {
     this.findGroupMates();
   }
 
+  getTaskCount(): number {
+    return this.tasks.length;
+  }
+  
   findGroupMates() : void {
     fetch('http://localhost:3000/users')
     .then(function(response) {
@@ -99,7 +103,9 @@ export class MainPageComponent {
 
 
 updateProgress() {
-  const progress = this.completedTaskCount * 25;
+  const tasksCount = this.getTaskCount();
+  console.log(`Number of tasks in the team: ${tasksCount}`);
+  const progress = this.completedTaskCount * 100 / tasksCount;
   return progress;
 }
   
