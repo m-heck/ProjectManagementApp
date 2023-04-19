@@ -58,7 +58,7 @@ export class SignInPageComponent {
         });
 
       if (true) {
-        this._router.navigate(['/main']);
+        //this._router.navigate(['/main']);
       }
       const message = "You have been signed up!";
       alert(message);
@@ -81,13 +81,15 @@ export class SignInPageComponent {
   }
 
   teamSignUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, teamname: string, code: string}){
+    users.code = Math.floor(1000 + Math.random() * 9000).toString()
+    console.log(users.code)
     console.log(users);
     this.http.post('http://localhost:3000/users', users)
     .subscribe((res) => {
       console.log(res);
     });
-    this._router.navigate(['/main']);
-    const message = users.teamname + " has been created!";
+    //this._router.navigate(['/main']);
+    const message = "your account has been created and the team" + users.teamname + " has been created!";
     alert(message);
   }
   

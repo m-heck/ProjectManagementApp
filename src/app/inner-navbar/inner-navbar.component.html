@@ -1,10 +1,10 @@
 <header class="navbar">
     <mat-toolbar color="accent">
       <div class="navbar-title" (click)="showMain()">
-        Project Name
+        {{projectName}}
       </div>
       <div class="navbar-progress">
-        Your Progress
+        {{userName}}'s Progress
       </div>
       <mat-progress-bar mode="determinate" value="50" class="bar"></mat-progress-bar>
       <div class="navbar-button">

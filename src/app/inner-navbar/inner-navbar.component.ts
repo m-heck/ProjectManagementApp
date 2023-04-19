@@ -4,6 +4,8 @@ import { ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { TeamSignInPageComponent } from '../team-sign-in-page/team-sign-in-page.component';
 import * as myUser from '..//user_instance';
+import { person } from '../team-sign-in-page/team-sign-in-page.component'
+
 
 
 interface User {
@@ -22,6 +24,9 @@ interface User {
 })
 export class InnerNavbarComponent {
   @ViewChild(MatSidenav) sidenav: MatSidenav;
+
+  projectName = person.tname;
+  userName = person.name;
 
   constructor(private router: Router) {}
 
