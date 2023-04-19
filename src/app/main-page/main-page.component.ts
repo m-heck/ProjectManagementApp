@@ -45,4 +45,30 @@ export class MainPageComponent {
     this.dialogRef.open(AddTaskModalComponent, {
     });
   };
+  
+  completedTaskCount: number = 0;
+
+
+updateProgress() {
+  const progress = this.completedTaskCount * 25;
+  return progress;
+}
+  
+handleCheckboxChanged(event: {index: number, completed: boolean}) {
+  console.log("nig");
+
+  const progressBarIncrement = 25;
+  let progressbar = 0;
+  
+  if (event.completed) {
+    this.completedTaskCount++;
+    progressbar += progressBarIncrement;
+  } else {
+    this.completedTaskCount--;
+    progressbar -= progressBarIncrement;
+  }
+
+  this.updateProgress()
+}
+
 }

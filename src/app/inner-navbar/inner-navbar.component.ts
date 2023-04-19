@@ -4,6 +4,7 @@ import { ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { TeamSignInPageComponent } from '../team-sign-in-page/team-sign-in-page.component';
 import * as myUser from '..//user_instance';
+import { Input } from '@angular/core';
 
 
 interface User {
@@ -21,6 +22,7 @@ interface User {
   styleUrls: ['./inner-navbar.component.scss']
 })
 export class InnerNavbarComponent {
+  @Input() progress: number = 0;
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
   constructor(private router: Router) {}

@@ -6,7 +6,7 @@
       <div class="navbar-progress">
         Your Progress
       </div>
-      <mat-progress-bar mode="determinate" value="50" class="bar"></mat-progress-bar>
+      <mat-progress-bar mode="determinate" [value]="progress" class="bar"></mat-progress-bar>
       <div class="navbar-button">
         <button mat-button  (click)="goToTimeline()">Timeline</button>
         <button id="signoutButton" mat-button (click)="signOutButton()">Sign Out</button>

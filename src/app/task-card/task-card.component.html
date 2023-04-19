@@ -4,7 +4,7 @@
     <div class="due-date">
       {{ dueDate }}
     </div>
-    <mat-checkbox [(ngModel)]="completed"></mat-checkbox>
+    <mat-checkbox [(ngModel)]="completed" (change)="onCheckboxChange()"></mat-checkbox>
   </mat-card-header>
   <mat-card-content>
     <div class="tags">

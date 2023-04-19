@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskDetailsModalComponent } from '../task-details-modal/task-details-modal.component'
+import { Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class TaskCardComponent {
   @Input() dueDate: string;
   @Input() tags: string[];
   @Input() desc: string;
+  @Input() taskIndex: number;
+  @Output() checkboxToggle = new EventEmitter<{index: number, completed: boolean}>();
   completed: boolean = false;
 
   constructor(private dialogRef: MatDialog) { }
@@ -29,5 +32,11 @@ export class TaskCardComponent {
     });
   }
 
+ 
+  onCheckboxChange(){
+    console.log(this.completed)
+    this.checkboxToggle.emit({index: this.taskIndex, completed: this.completed});
+    console.log("hi")
+  }
 
 }

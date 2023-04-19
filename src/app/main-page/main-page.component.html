@@ -1,5 +1,5 @@
 <div class="container">
-  <app-inner-navbar></app-inner-navbar>
+  <app-inner-navbar [progress]="updateProgress()"></app-inner-navbar>
   <div class="add-task-container">
     <p id="join-code">Team Join Code: {{joinCode}}</p>
     <div class="whitespace"></div>
@@ -13,11 +13,13 @@
       </app-progress-card>
     </mat-card>
     <div class="tasks-section">
-      <app-task-card  *ngFor="let task of tasks"
-                      [tags]="task.tags"
-                      [title] ="task.title"
-                      [dueDate] ="task.dueDate"
-                      [desc] = "task.desc">
+      <app-task-card *ngFor="let task of tasks; let i = index"
+                 [taskIndex]="i"
+                 [tags]="task.tags"
+                 [title] ="task.title"
+                 [dueDate] ="task.dueDate"
+                 [desc] = "task.desc"
+                 (checkboxToggle)="handleCheckboxChanged($event)">
       </app-task-card>
     </div>
   </div>
