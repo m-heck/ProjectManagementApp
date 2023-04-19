@@ -11,8 +11,12 @@ export const person = {
   phone: "",
   email: "",
   password: "",
+  tname: "",
   code: ""
 };
+
+
+
 declare var require: any;
 @Component({
   selector: 'app-team-sign-in-page',
@@ -27,7 +31,6 @@ export class TeamSignInPageComponent {
       phone: "",
       email: "",
       password: "",
-      tname: "",
       code: ""
   };
 
@@ -77,6 +80,7 @@ export class TeamSignInPageComponent {
         person.phone = arr[n]["contact"];
         person.email = arr[n]["email"];
         person.password = arr[n]["password"];
+        person.tname = arr[n]["teamname"];
         person.code = arr[n]["code"];
 
         temp.navigate(['/main']);
