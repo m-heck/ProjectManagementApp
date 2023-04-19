@@ -34,9 +34,7 @@ export class TaskCardComponent {
 
  
   onCheckboxChange(){
-    console.log(this.completed)
     this.checkboxToggle.emit({index: this.taskIndex, completed: this.completed});
-    console.log("hi")
   }
 
 }

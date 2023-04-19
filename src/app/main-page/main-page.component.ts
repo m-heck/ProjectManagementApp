@@ -104,14 +104,11 @@ export class MainPageComponent {
 
 updateProgress() {
   const tasksCount = this.getTaskCount();
-  console.log(`Number of tasks in the team: ${tasksCount}`);
   const progress = this.completedTaskCount * 100 / tasksCount;
   return progress;
 }
   
 handleCheckboxChanged(event: {index: number, completed: boolean}) {
-  console.log("nig");
-
   const progressBarIncrement = 25;
   let progressbar = 0;
   
