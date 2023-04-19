@@ -1,0 +1,24 @@
+<mat-card class="member-card">
+  <mat-card-header>
+    <div class="name">{{ name }}</div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-chip-listbox>
+      <div color="primary" *ngFor="let tag of tags">
+        <mat-chip (click)="removeTag(tag)">{{ tag }}</mat-chip>
+      </div>
+    </mat-chip-listbox>
+    <span class="add">
+      <form #taskForm="ngForm" class="form-container">
+        <mat-form-field color="accent">
+          <mat-label>Add Tag: </mat-label>
+          <input type="text" matInput name="newTag">
+        </mat-form-field>
+
+      </form>
+      <button mat-raised-button class="button" color="primary">Add</button>
+    </span>
+  </mat-card-content>
+</mat-card>
+
+

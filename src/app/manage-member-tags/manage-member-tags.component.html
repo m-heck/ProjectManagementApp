@@ -1,9 +1,15 @@
-<mat-card class="details-card">
+<mat-card class="manage-card">
   <mat-card-header>
-    <span class="modal-title">Manage Tags</span>
+    <span class="title">Manage Tags</span>
+    <span>Click tags to remove.</span>
   </mat-card-header>
-  <div *ngFor="let user of users">{{user.name}}</div>
-  <mat-card-actions>
-    <button mat-raised-button color="primary">Save</button>
-  </mat-card-actions>
+  <mat-card-content>
+    <app-member-tags *ngFor="let user of users"
+                     [tags]="user.tags"
+                     [name]="user.name">
+    </app-member-tags>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Save</button>
+    </mat-card-actions>
+  </mat-card-content>
 </mat-card>

@@ -1,0 +1,29 @@
+.timeline {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+  }
+  
+  .timeline::-webkit-scrollbar {
+    display: none; 
+  }
+  
+  .timeline-item {
+    margin: 0 20px;
+    flex-shrink: 0;
+  }
+  
+  .whitespace {
+    margin-top: 100px;
+    width: 80%;
+  }
+
+  .container {
+    height: auto;
+    width: 100vw;
+  }
+
+  .title {
+    margin-left: 30px;
+    font-size: 20px;
+  }

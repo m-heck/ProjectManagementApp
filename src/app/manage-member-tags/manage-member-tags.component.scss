@@ -11,41 +11,19 @@ $primary: map.get($color-config, 'primary');
 $accent: map.get($color-config, 'accent');
 $secondary: map.get($color-config, 'secondary');
 
-.details-card {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 16px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+
+.manage-card {
+  width: 40vw;
+  height: 80vh;
 }
 
-.modal-title {
-  font-size: 24px;
-  font-weight: 600;
-}
+.title {
+  font-size: 3vh;
+  width: 40vh;
+  font-weight: bold;
+  margin: 1vh 10vw 0.5vh 1vw;
+  height: 5vh;
 
-.example-full-width {
-  width: 100%;
-}
-
-.first-input {
-  margin-bottom: 16px;
-}
-
-mat-form-field {
-  margin-bottom: 16px;
-}
-
-mat-checkbox {
-  margin-bottom: 16px;
-  font-size: 16px;
-}
-
-mat-card-actions {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 16px;
 }
 
 button {

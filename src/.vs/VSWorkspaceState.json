@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\add-task-modal",
+    "\\app\\home-page",
+    "\\app\\main-page",
+    "\\app\\manage-member-tags",
+    "\\app\\member-tags",
+    "\\app\\pre-login-navbar",
+    "\\app\\sidebar",
+    "\\app\\task-card"
+  ],
+  "SelectedNode": "\\app\\add-task-modal\\add-task-modal.component.scss",
+  "PreviewInSolutionExplorer": false
+}

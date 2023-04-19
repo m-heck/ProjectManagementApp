@@ -14,9 +14,10 @@
     </mat-card>
     <div class="tasks-section">
       <app-task-card  *ngFor="let task of tasks"
-                      title ={{task.title}}
-                      dueDate ={{task.dueDate}}
-                      desc ={{task.desc}}>
+                      [tags]="task.tags"
+                      [title] ="task.title"
+                      [dueDate] ="task.dueDate"
+                      [desc] = "task.desc">
       </app-task-card>
     </div>
   </div>

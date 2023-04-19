@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import { ManageMemberTagsComponent } from '../manage-member-tags/manage-member-tags.component';
-
+import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.component';
+import { DialogService } from '../../app/dialog.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
+  providers: [
+    DialogService, MatDialog
+ ],
 })
 export class SidebarComponent {
 
@@ -23,4 +27,8 @@ export class SidebarComponent {
     });
   };
 
+  showAddTask() {
+    this.dialogRef.open(AddTaskModalComponent, {
+    });
+  }
 }

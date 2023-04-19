@@ -1,0 +1,21 @@
+<div class="container" >
+    <app-inner-navbar></app-inner-navbar>
+    <div class="whitespace"></div>
+    <p class="title">Timeline</p>
+    <div class="timeline">
+        <div class="timeline-item" *ngFor="let task of tasks">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{ task.title }}</mat-card-title>
+              <mat-card-subtitle>{{ task.dueDate | date }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ task.desc }}</p>
+              <div class="tags">
+                <span class="tag" *ngFor="let tag of task.tags">{{ tag }}</span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+</div>

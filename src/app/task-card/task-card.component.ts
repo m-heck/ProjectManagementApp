@@ -12,7 +12,7 @@ import { TaskDetailsModalComponent } from '../task-details-modal/task-details-mo
 export class TaskCardComponent {
   @Input() title: string;
   @Input() dueDate: string;
-  tags: string[] = ['tag', 'tag', 'tag'];
+  @Input() tags: string[];
   @Input() desc: string;
   completed: boolean = false;
 

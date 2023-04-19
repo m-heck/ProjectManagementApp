@@ -34,6 +34,14 @@ export class InnerNavbarComponent {
     this.sidenav.toggle();
   }
 
+  goToTimeline() {
+    this.router.navigate(['/timeline']);
+  }
+
+  showMain() {
+    this.router.navigate(['/main']);
+  }
+
   //create an users array from the json object
   //username: String = myUser.user_instance.
   //hello: number = myUser.user_instance.

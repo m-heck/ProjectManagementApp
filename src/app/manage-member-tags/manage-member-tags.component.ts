@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 interface user {
   name: string;
-  percent: string;
+  tags: string[];
 }
 
 @Component({
@@ -11,7 +11,6 @@ interface user {
   styleUrls: ['./manage-member-tags.component.scss']
 })
 export class ManageMemberTagsComponent {
-  users: user[] = [{ name: 'Alan', percent: "23%" }, { name: 'Maren', percent: "76%" },
-  { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }, { name: 'Alan', percent: "23%" },
-  { name: 'Maren', percent: "76%" }, { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }]
+  users: user[] = [{ name: 'Alan', tags:['programming', 'swe', 'find carpool', 'sports'] }, { name: 'Maren', tags:['exam', 'os', 'swe', 'armadillo'] },
+    { name: 'Jerry', tags: ['project', 'swe', 'griddy', 'errand'] }, { name: 'Max', tags: ['food', 'swe', 'programming', 'memory management'] }];
 }

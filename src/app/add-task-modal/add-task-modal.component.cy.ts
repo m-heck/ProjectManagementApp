@@ -1,0 +1,34 @@
+import { AddTaskModalComponent } from './add-task-modal.component';
+
+describe('Task Form Component', () => {
+    it('should display "New Task" as the modal title', () => {
+        cy.mount(AddTaskModalComponent, {});
+        cy.get('.modal-title').should('contain.text', 'New Task');
+      });
+
+      it('should have a "Save" button', () => {
+        cy.mount(AddTaskModalComponent, {});
+        cy.get('button').should('have.text', 'Save');
+      });
+    
+      it('should have a "Task name" input field', () => {
+        cy.mount(AddTaskModalComponent, {});
+        cy.get('[name="taskName"]').should('exist');
+        cy.get('[name="taskName"]').should('have.attr', 'type', 'text');
+        cy.get('[name="taskName"]').should('have.attr', 'placeholder', 'Task name');
+      });
+    
+      it('should have a "Due date" input field', () => {
+        cy.mount(AddTaskModalComponent, {});
+        cy.get('[name="dueDate"]').should('exist');
+        cy.get('[name="dueDate"]').should('have.attr', 'type', 'date');
+        cy.get('[name="dueDate"]').should('have.attr', 'placeholder', 'Due date');
+      });
+
+    
+      it('should have an "Add tags" input field', () => {
+        cy.mount(AddTaskModalComponent, {});
+        cy.get('[placeholder="New tag"]').should('exist');
+      });
+    
+  });

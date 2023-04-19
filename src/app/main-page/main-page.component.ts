@@ -7,10 +7,11 @@ interface user {
   name: string;
   percent: string;
 }
+
 interface task {
   title: string;
   dueDate: string;
-  tags: string;
+  tags: string[];
   desc: string;
 }
 
@@ -26,10 +27,10 @@ export class MainPageComponent {
     { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }, { name: 'Alan', percent: "23%" },
     { name: 'Maren', percent: "76%" }, { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }];
 
-  tasks: task[] = [{ title: 'Finish SWE Homework', dueDate: "03-29-2023", tags: "['programming', 'swe']", desc: "Description." },
-    { title: "Take SWE Exam", dueDate: "03-30-2023", tags: "['exam', 'swe', 'project']", desc: "Description." },
-    { title: "Start OS project", dueDate: "03-31-2023", tags: "['project', 'os', 'memory management', 'homework']", desc: "Description." },
-    { title: "Buy groceries", dueDate: "03-31-2023", tags: "['food', 'errand','find carpool']", desc: "Description." }  ];
+  tasks: task[] = [{ title: 'Finish SWE Homework', dueDate: "03-29-2023", tags: ['programming', 'swe'], desc: "Description." },
+    { title: "Take SWE Exam", dueDate: "03-30-2023", tags: ['exam', 'swe', 'project'], desc: "Description." },
+    { title: "Start OS project", dueDate: "03-31-2023", tags: ['project', 'os', 'memory management'], desc: "Description." },
+    { title: "Buy groceries", dueDate: "03-31-2023", tags: ['food', 'errand','find carpool'], desc: "Description." }  ];
 
     joinCode = 5555;
 

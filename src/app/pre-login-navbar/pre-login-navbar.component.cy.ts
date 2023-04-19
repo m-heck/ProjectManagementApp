@@ -3,8 +3,6 @@ import { PreLoginNavbarComponent } from './pre-login-navbar.component';
 
 describe('PreLoginNavbarComponent', () => {
     it('Should display itself and its links', () => {
-        const onChangeSpy = cy.spy().as('onChangeSpy')
-
         cy.mount(PreLoginNavbarComponent, {});
         cy.get('.nav-button-container').contains('Home');
         cy.get('.nav-button-container').contains('Login');

@@ -2,8 +2,8 @@
   <mat-card-header>
     <span class="modal-title">{{title}}</span>
   </mat-card-header>
-  <form #taskForm="ngForm" id="form-container">
-    <mat-form-field color="accent" class="example-full-width first-input">
+  <form id="form-container">
+    <mat-form-field color="accent" class="example-full-width first-input name">
       <mat-label>Task name</mat-label>
       <input type="text" matInput placeholder="Task name" name="taskName" [(ngModel)]="title" required>
     </mat-form-field>
