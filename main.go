@@ -45,14 +45,15 @@ type user struct {
 	Email    string `json:"email"`
 	Contact  string `json:"contact"`
 	Password string `json:"password"`
+	Teamname string `json:"teamname"`
 	Code     string `json:"code"`
 	Tasks    []Task `json:"tasks"`
 }
 
 var users = []user{
-	{Username: "gatoralanw", Name: "Alan", Email: "a.wang@ufl.edu", Contact: "3525141846", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"},
-	{Username: "TossTheNoodles", Name: "Jerry", Email: "j.wang@ufl.edu", Contact: "4076164313", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"},
-	{Username: "Makshiboi", Name: "Max", Email: "m.huang@ufl.edu", Contact: "3523426677", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"},
+	{Username: "gatoralanw", Name: "Alan", Email: "a.wang@ufl.edu", Contact: "3525141846", Password: "IcantactaullyShowmyPasswordLOL", Teamname: "TheRealMLGroup", Code: "0000"},
+	{Username: "TossTheNoodles", Name: "Jerry", Email: "j.wang@ufl.edu", Contact: "4076164313", Password: "IcantactaullyShowmyPasswordLOL", Teamname: "TheRealMLGroup", Code: "0000"},
+	{Username: "Makshiboi", Name: "Max", Email: "m.huang@ufl.edu", Contact: "3523426677", Password: "IcantactaullyShowmyPasswordLOL", Teamname: "TheRealMLGroup", Code: "0000"},
 }
 
 var teams = []Team{

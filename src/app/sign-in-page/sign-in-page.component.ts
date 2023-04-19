@@ -25,29 +25,70 @@ export class SignInPageComponent {
 
   constructor(private http: HttpClient, private _router: Router) { }
 
-  signUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, code: string} ){
-    //console.log(users);
+  signUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, teamname: string, code: string} ){
+    var count = 0;
+    fetch('http://localhost:3000/users')
+    .then(function(response) {
+      return response.json();
+    })
+    .then((myJson) => {
+      for(var i in myJson)
+      {
+        //console.log(myJson[i]["code"])
+        //console.log(users.code)
+        if(myJson[i]["code"] == users.code)
+        {
+          users.teamname = myJson[i]["teamname"];
+          count = count + 1;
+          break;
+        }
+      }
+      console.log(count)
+      if(count == 0)
+      {
+        const message = "Invalid join code!";
+        alert(message);
+      }
+      else
+      {
+        console.log(users);
+        this.http.post('http://localhost:3000/users', users)
+        .subscribe((res) => {
+          console.log(res);
+        });
+
+      if (true) {
+        this._router.navigate(['/main']);
+      }
+      const message = "You have been signed up!";
+      alert(message);
+      }
+      //console.log(users.username)
+
+      //see if the username exists
+      /* for(var n = 0; n < arr.length; n++)
+      {
+        if (arr[n]["username"] == users.username) 
+        {
+          if(arr[n]["password"] == users.password)
+          {
+            validPassword = true;
+            break;
+          }
+        }
+      } */
+    });
+  }
+
+  teamSignUpButton(users: {username: string, name: string, phonenumber: string, email: string, password: string, teamname: string, code: string}){
+    console.log(users);
     this.http.post('http://localhost:3000/users', users)
     .subscribe((res) => {
       console.log(res);
     });
-
-    if (true) {
-      this._router.navigate(['/main']);
-    }
-    const message = "You has been signed up!";
-
-  }
-
-  teamSignUpButton(teams: {members: {Username: "gatoralanw", Name: "Alan", Email: "a.wang@ufl.edu", Contact: "3525141846", Password: "IcantactaullyShowmyPasswordLOL", Code: "0000"}, teamname: string, id: string}){
-    console.log(teams);
-    this.http.post('http://localhost:3000/teams/', teams)
-    .subscribe((res) => {
-      console.log(res);
-    });
-    //this._router.navigate(['/main']);
-    //const message = teams.teamname + " has been created!";
-    //alert(message);
+    this._router.navigate(['/main']);
+    const message = users.teamname + " has been created!";
+    alert(message);
   }
   
   /*
