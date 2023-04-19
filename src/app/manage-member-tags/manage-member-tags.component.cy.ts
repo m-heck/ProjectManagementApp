@@ -4,7 +4,7 @@ describe('manage-member-tags component', () => {
 
     it('should display the correct title', () => {
         cy.mount(ManageMemberTagsComponent, {});
-      cy.get('.modal-title').should('have.text', 'Manage Tags');
+      cy.get('.title').should('have.text', 'Manage Tags');
     });
   
     it('should display a member tag for each user', () => {

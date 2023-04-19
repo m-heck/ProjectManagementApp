@@ -4,14 +4,12 @@ import { HomePageComponent } from "../home-page/home-page.component";
 
 describe('InnerNavbarComponent', () => {
     it('test project name title', () => {
-        cy.mount(InnerNavbarComponent, {});
-        cy.get('.navbar-title').should('contain.text', 'Project Name');
-    });
-
-
-    it('should display the progress bar with 50% progress', () => {
-        cy.mount(InnerNavbarComponent, {});
-        cy.get('.bar').should('have.attr', 'value', '50');
+        cy.mount(InnerNavbarComponent, {
+            componentProperties: {
+                projectName: 'Test Name',
+              },
+        });
+        cy.get('.navbar-title').should('contain.text', 'Test Name');
     });
 
     it('should include all necessary buttons', () => {

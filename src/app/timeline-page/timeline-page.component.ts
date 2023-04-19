@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InnerNavbarComponent } from '../inner-navbar/inner-navbar.component';
 
 @Component({
   selector: 'app-timeline-page',
