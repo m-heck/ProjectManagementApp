@@ -58,8 +58,7 @@ export class TeamSignInPageComponent {
         arr.push(myJson[i]);
       }
 
-      console.log(users.username)
-
+      
       //see if the username exists
       for(var n = 0; n < arr.length; n++)
       {

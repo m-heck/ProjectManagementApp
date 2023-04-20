@@ -31,9 +31,7 @@ export class TaskDetailsModalComponent implements OnInit{
     task.title = tasks.taskname;
     task.dueDate = tasks.dueDate;
     task.tags = tasks.listOfTags;
-    console.log(tasks.taskname)
-    console.log(tasks.taskname)
-    console.log(tasks.taskname)
+    
   }
 
   /*
