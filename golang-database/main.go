@@ -206,6 +206,41 @@ func (d *Driver) ReadAll(collection string) ([]string, error) {
 	return records, nil
 }
 
+func (d *Driver) Discard(collection, resource string, v interface{}) error {
+	if collection == "" {
+		return fmt.Errorf("Missing Collection - no place to save record!")
+	}
+
+	if resource == "" {
+		return fmt.Errorf("Missing resource - unable to save record (no name)!")
+	}
+
+	mutex := d.getOrCreateMutex(collection)
+	mutex.Lock()
+	defer mutex.Unlock()
+
+	dir := filepath.Join(d.dir, collection)
+	fnlPath := filepath.Join(dir, resource+".json")
+	tmpPath := fnlPath + ".tmp"
+
+	if err := os.MkdirAll(dir, 0755); err != nil {
+		return err
+	}
+
+	b, err := json.MarshalIndent(v, "", "\t")
+	if err != nil {
+		return err
+	}
+
+	b = append(b, byte('\n'))
+
+	if err := ioutil.WriteFile(tmpPath, b, 0644); err != nil {
+		return err
+	}
+
+	return os.Rename(tmpPath, fnlPath)
+}
+
 func (d *Driver) Delete(collection, resource string) error {
 	path := filepath.Join(collection, resource)
 	mutex := d.getOrCreateMutex(collection)

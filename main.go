@@ -257,6 +257,28 @@ func getTeamByID(id string) (*Team, error) {
 	return nil, errors.New("team not found")
 }
 
+/*(func (d *Driver) Delete(collection, resource string) error {
+	path := filepath.Join(collection, resource)
+	mutex := d.getOrCreateMutex(collection)
+	mutex.Lock()
+	defer mutex.Unlock()
+
+	dir := filepath.Join(d.dir, path)
+
+	switch fi, err := stat(dir); {
+	case fi == nil, err != nil:
+		return fmt.Errorf("unable to find file or directory named %v\n", path)
+
+	case fi.Mode().IsDir():
+		return os.RemoveAll(dir)
+
+	case fi.Mode().IsRegular():
+		return os.RemoveAll(dir + ".json")
+	}
+	return nil
+}
+*/
+
 func main() {
 	/* mux := http.NewServeMux()
 	mux.HandleFunc("/plm/cors", Cors)
