@@ -206,6 +206,73 @@ func (d *Driver) ReadAll(collection string) ([]string, error) {
 	return records, nil
 }
 
+func (d *Driver) Mutate(collection, resource string, v interface{}) error {
+	if collection == "" {
+
+		return fmt.Errorf("Missing Collection - no place to save record!")
+
+	}
+
+	if resource == "" {
+
+		return fmt.Errorf("Missing resource - unable to save record (no name)!")
+
+	}
+
+	mutex := d.getOrCreateMutex(collection)
+	mutex.Lock()
+
+	defer mutex.Unlock()
+
+	dir := filepath.Join(d.dir, collection)
+
+	fnlPath := filepath.Join(dir, resource+".json")
+
+	tmpPath := fnlPath + ".tmp"
+
+	if err := os.MkdirAll(dir, 0755); err != nil {
+		return err
+	}
+
+	b, err := json.MarshalIndent(v, "", "\t")
+
+	if err != nil {
+
+		return err
+	}
+	b = append(b, byte('\n'))
+
+	if err := ioutil.WriteFile(tmpPath, b, 0644); err != nil {
+
+		return err
+
+	}
+	//mutex := d.getOrCreateMutex(collection)
+
+	mutex.Lock()
+
+	defer mutex.Unlock()
+
+	//dir := filepath.Join(d.dir, collection)
+
+	//fnlPath := filepath.Join(dir, resource+".json")
+
+	//tmpPath := fnlPath + ".tmp"
+
+	if err := os.MkdirAll(dir, 0755); err != nil {
+		return err
+	}
+
+	//b, err := json.MarshalIndent(v, "", "\t")
+
+	if err != nil {
+		return err
+	}
+
+	return os.Rename(tmpPath, fnlPath)
+
+}
+
 func (d *Driver) Discard(collection, resource string, v interface{}) error {
 	if collection == "" {
 		return fmt.Errorf("Missing Collection - no place to save record!")
@@ -260,6 +327,110 @@ func (d *Driver) Delete(collection, resource string) error {
 		return os.RemoveAll(dir + ".json")
 	}
 	return nil
+}
+
+/*
+	func (d *Driver) Renew(collection, resource string, v interface{}) error {
+		if collection == "" {
+
+			return fmt.Errorf("Missing Collection - no place to save record!")
+
+		}
+
+
+		dir := filepath.Join(d.dir, path)
+
+		switch fi, err := stat(dir); {
+		case fi == nil, err != nil:
+			return fmt.Errorf("unable to find file or directory named %v\n", path)
+
+		case fi.Mode().IsDir():
+			return os.RemoveAll(dir)
+
+		case fi.Mode().IsRegular():
+			return os.RemoveAll(dir + ".jso
+		dir := filepath.Join(d.dir, collection)
+
+
+		fnlPath := filepath.Join(dir, resource+".json")
+
+		tmpPath := fnlPath + ".tmp"
+
+
+		if err := os.MkdirAll(dir, 0755); err != nil {
+
+			return err
+
+		}
+
+		ir := filepath.Join(d.dir, collection)
+
+		fnlPath := filepath.Join(dir, resource+".json
+		")
+
+		tmpPath := fnlPath + ".tmp"
+
+		if err := os.MkdirAll(dir, 0755); err != nil {
+			return err
+		}
+
+		b, err := json.MarshalIndent(v, "", "\t")
+		if err != nil {
+			return err
+		}
+
+		b = append(b, byte('\n'))
+		return os.Rename(tmpPath, fnlPath)
+	}
+*/
+func (d *Driver) Revise(collection, resource string, v interface{}) error {
+	if collection == "" {
+
+		return fmt.Errorf("Missing Collection - no place to save record!")
+
+	}
+
+	if resource == "" {
+
+		return fmt.Errorf("Missing resource - unable to save record (no name)!")
+
+	}
+
+	mutex := d.getOrCreateMutex(collection)
+
+	mutex.Lock()
+
+	defer mutex.Unlock()
+
+	dir := filepath.Join(d.dir, collection)
+
+	fnlPath := filepath.Join(dir, resource+".json")
+
+	tmpPath := fnlPath + ".tmp"
+
+	if err := os.MkdirAll(dir, 0755); err != nil {
+
+		return err
+
+	}
+
+	b, err := json.MarshalIndent(v, "", "\t")
+
+	if err != nil {
+
+		return err
+
+	}
+
+	b = append(b, byte('\n'))
+
+	if err := ioutil.WriteFile(tmpPath, b, 0644); err != nil {
+
+		return err
+
+	}
+
+	return os.Rename(tmpPath, fnlPath)
 }
 
 func (d *Driver) getOrCreateMutex(collection string) *sync.Mutex {

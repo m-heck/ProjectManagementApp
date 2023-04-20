@@ -12,6 +12,13 @@ We primarily worked on fixing up the gaps in our project from the previous sprin
 The main features we were unable to complete were complete integration with the backend team and the timeline page.
 
 ## Backend
+This sprint we worked on displaying personalized user data once they login. In other words, once a user logs in the main page will show the name of the project that 
+they are specifically working on in the top left corner. Furthermore, the top progress bar will show the name of the user who has logged in and the specific code of 
+their team will be displayed in the top left. Most importantly, we were able to display the specific users who are also working on the same project as the user who 
+logged in on the side of the page. So, if another user signs up and joins that specific team then that user's name will also show up on the side bar. Furthermore, we 
+also created an interactive progress bar. This progress bar will gradually fill up as the user starts to check off their given tasks. Finally, we implemented the add 
+task feature so users can add tasks for themselves. When the add task button is clicked the user is prompted to input the specific information about the task and once 
+they press save, a corresponding task card will appear in the list.
 
 # Frontend Unit Tests
 Some of the frontend tests from previous sprints were deleted to accomidate for changes made to our website. Only new frontend unit tests will be included in this document, however.
@@ -151,7 +158,10 @@ Some of the frontend tests from previous sprints were deleted to accomidate for 
     });
 ```
 # Backend Unit Tests
-Our backend wrote four more unit test cases that test our functions in our main.go file that contains API calls to the front-end. The first test TestGetTasksByUser gets all the tasks for the user selected. It will show which tasks the users have assigned. Our second test TestAddTasktoUser adds tasks to the user. It will only add tasks to the team code that the user has. Our third test TestAddMemberToTeamByID adds members to the team by ID. This will check if members can join specific teams through ID. Our final test TestGetUsersInTeams will identify all users in the team by ID. This will allow us to get all the members in the team.
+Our backend wrote four more unit test cases that test our functions in our main.go file that contains API calls to the front-end. The first test TestGetTasksByUser gets
+ all the tasks for the user selected. It will show which tasks the users have assigned. Our second test TestAddTasktoUser adds tasks to the user. It will only add tasks
+  to the team code that the user has. Our third test TestAddMemberToTeamByID adds members to the team by ID. This will check if members can join specific teams through 
+ ID. Our final test TestGetUsersInTeams will identify all users in the team by ID. This will allow us to get all the members in the team.
 ### 1. Unit Test: TestGetTasksByUser() function, Gets Tasks by Username
 This code defines a test function TestGetTasksByUser that tests the getTasksByUser function using a Gin router with two test cases: one with a valid username and one with an invalid username. It sends HTTP GET requests with the usernames as parameters and records the response using a test recorder.
 ```func TestGetTasksByUser(t *testing.T) {
@@ -261,4 +271,16 @@ func TestGetUsersInTeam(t *testing.T) {
 
 	assert.Equal(t, http.StatusNotFound, w.Code)
 }
-# Backend API Documentation
+```
+
+### 5. Backend API Documentation
+In order to use our api you must run the main.go file in your terminal by typing go run main.go. It should then be running on localhost 3000. Our api currently consists
+ of three main methods: getUsers, getUserByUsername, and post. Get users returns a list of every single user in json format stored in the backend and can be accessed 
+ using the link localhost:3000/users. Get user by username allows you to look up a specific user by their username and returns that users data in json format. It can be 
+ accessed using the link localhost:3000/users/:username with username being the specific username you want to look up. Finally, post allows someone to add a user to the 
+ backend database. It takes two parameters the first is the link which is http://localhost:3000/users and the second is the user object itself. The backend expects 
+ every user object to contain a username, name, email, phone number, password, and project join code property so ensure that the user object you are passing in contains 
+ those properties or else post will not add the user properly. When looking for a valid login you must pass in username and password parameters into the call request so 
+ it can check whether a specific user exists in the backend. Furthermore, an additional function was written in this sprint which is the getUserByCode. This function 
+ takes in a project join code and looks through the whole database and returns the users that have matching project join codes in order to determine which users are on 
+ the same team.
