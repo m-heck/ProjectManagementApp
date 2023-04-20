@@ -304,3 +304,97 @@ func TestUpdateUserCode(t *testing.T) {
 		t.Errorf("User's code not updated")
 	}
 }
+
+func TestGetTasksByUser(t *testing.T) {
+	router := gin.New()
+	router.Use(CORSMiddleware())
+	router.GET("/users/:username/tasks", getTasksByUser)
+
+	// Test case with a valid username
+	req, _ := http.NewRequest("GET", "/users/gatoralanw/tasks", nil)
+	w := httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	// Test case with an invalid username
+	req, _ = http.NewRequest("GET", "/users/nonexistentuser/tasks", nil)
+	w = httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+}
+
+func TestAddTaskToUser(t *testing.T) {
+	router := gin.New()
+	router.Use(CORSMiddleware())
+	router.POST("/users/:username/tasks", addTaskToUser)
+
+	// Test case with a valid username
+	//taskJSON := `{"title":"Test Task","dueDate":"2023-05-01","tags":["test"],"desc":"Test task description","completed":false}`
+
+	//router.ServeHTTP(w, req)
+
+	//w = httptest.NewRecorder()
+
+	//assert.Equal(t, http.StatusNotFound, w.Code)
+
+	//invalidJSON := `{"title":"Test Task","dueDate":"2023-05-01","tags":["test"],"desc":"Test task description","completed":}`
+	//req, _ = http.NewRequest("POST", "/users/gatoralanw/tasks", bytes.NewBufferString(invalidJSON))
+	//w = httptest.NewRecorder()
+
+	//router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusOK, w.Code)
+}
+
+func TestAddMemberToTeamByID(t *testing.T) {
+	router := gin.New()
+	router.Use(CORSMiddleware())
+	router.POST("/teams/:id/members/:username", addMemberToTeamByID)
+
+	// Test case with a valid team ID and username
+	req, _ := http.NewRequest("POST", "/teams/6969/members/TossTheNoodles", nil)
+	w := httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusOK, w.Code)
+
+	// invalid ID
+	req, _ = http.NewRequest("POST", "/teams/1234/members/TossTheNoodles", nil)
+	w = httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusNotFound, w.Code)
+
+	// Invalid User
+	req, _ = http.NewRequest("POST", "/teams/6969/members/nonexistentuser", nil)
+	w = httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusNotFound, w.Code)
+}
+
+func TestGetUsersInTeam(t *testing.T) {
+	router := gin.New()
+	router.Use(CORSMiddleware())
+	router.GET("/teams/:id/members", getUsersInTeam)
+
+	// valid team ID
+	req, _ := http.NewRequest("GET", "/teams/6969/members", nil)
+	w := httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusOK, w.Code)
+
+	//invalid team ID
+	req, _ = http.NewRequest("GET", "/teams/1234/members", nil)
+	w = httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusNotFound, w.Code)
+}
