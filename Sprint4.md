@@ -183,21 +183,21 @@ func TestAddTaskToUser(t *testing.T) {
 	router.POST("/users/:username/tasks", addTaskToUser)
 
 	// Test case with a valid username
-	//taskJSON := `{"title":"Test Task","dueDate":"2023-05-01","tags":["test"],"desc":"Test task description","completed":false}`
+	taskJSON := `{"title":"Test Task","dueDate":"2023-05-01","tags":["test"],"desc":"Test task description","completed":false}`
 
-	//router.ServeHTTP(w, req)
+	router.ServeHTTP(w, req)
 
-	//w = httptest.NewRecorder()
+	w = httptest.NewRecorder()
 
-	//assert.Equal(t, http.StatusNotFound, w.Code)
+	assert.Equal(t, http.StatusNotFound, w.Code)
 
-	//invalidJSON := `{"title":"Test Task","dueDate":"2023-05-01","tags":["test"],"desc":"Test task description","completed":}`
-	//req, _ = http.NewRequest("POST", "/users/gatoralanw/tasks", bytes.NewBufferString(invalidJSON))
-	//w = httptest.NewRecorder()
+	invalidJSON := `{"title":"Test Task","dueDate":"2023-05-01","tags":["test"],"desc":"Test task description","completed":}`
+	req, _ = http.NewRequest("POST", "/users/gatoralanw/tasks", bytes.NewBufferString(invalidJSON))
+	w = httptest.NewRecorder()
 
-	//router.ServeHTTP(w, req)
+	router.ServeHTTP(w, req)
 
-	//assert.Equal(t, http.StatusOK, w.Code)
+	assert.Equal(t, http.StatusOK, w.Code)
 }
 ```
 
@@ -216,7 +216,7 @@ func TestAddMemberToTeamByID(t *testing.T) {
 
 	router.ServeHTTP(w, req)
 
-	//assert.Equal(t, http.StatusOK, w.Code)
+	assert.Equal(t, http.StatusOK, w.Code)
 
 	// invalid ID
 	req, _ = http.NewRequest("POST", "/teams/1234/members/TossTheNoodles", nil)
@@ -224,7 +224,7 @@ func TestAddMemberToTeamByID(t *testing.T) {
 
 	router.ServeHTTP(w, req)
 
-	//assert.Equal(t, http.StatusNotFound, w.Code)
+	assert.Equal(t, http.StatusNotFound, w.Code)
 
 	// Invalid User
 	req, _ = http.NewRequest("POST", "/teams/6969/members/nonexistentuser", nil)
@@ -232,7 +232,7 @@ func TestAddMemberToTeamByID(t *testing.T) {
 
 	router.ServeHTTP(w, req)
 
-	//assert.Equal(t, http.StatusNotFound, w.Code)
+	assert.Equal(t, http.StatusNotFound, w.Code)
 }
 ```
 
@@ -251,7 +251,7 @@ func TestGetUsersInTeam(t *testing.T) {
 
 	router.ServeHTTP(w, req)
 
-	//assert.Equal(t, http.StatusOK, w.Code)
+	assert.Equal(t, http.StatusOK, w.Code)
 
 	//invalid team ID
 	req, _ = http.NewRequest("GET", "/teams/1234/members", nil)
@@ -259,6 +259,6 @@ func TestGetUsersInTeam(t *testing.T) {
 
 	router.ServeHTTP(w, req)
 
-	//assert.Equal(t, http.StatusNotFound, w.Code)
+	assert.Equal(t, http.StatusNotFound, w.Code)
 }
 # Backend API Documentation
