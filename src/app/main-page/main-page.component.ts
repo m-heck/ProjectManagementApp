@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.component';
 import { person } from '../team-sign-in-page/team-sign-in-page.component'
+import { task } from '../add-task-modal/add-task-modal.component'
 
 interface user {
   username: string;
@@ -29,6 +30,7 @@ interface task {
 
 
 export class MainPageComponent {
+
   /* users: user[] = [{ name: 'Alan', percent: "23%" }, { name: 'Maren', percent: "76%" },
     { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }, { name: 'Alan', percent: "23%" },
     { name: 'Maren', percent: "76%" }, { name: 'Jerry', percent: "45%" }, { name: 'Max', percent: "100%" }]; */
@@ -97,6 +99,11 @@ export class MainPageComponent {
   showAddTask() {
     this.dialogRef.open(AddTaskModalComponent, {
     });
+    //window.location.reload();
+    this.tasks.push({title: task.title,
+      dueDate: task.dueDate,
+      tags: task.tags,
+      desc: "Description"});
   };
   
   completedTaskCount: number = 0;

@@ -2,7 +2,7 @@
   <mat-card-header>
     <span class="modal-title">{{title}}</span>
   </mat-card-header>
-  <form id="form-container">
+  <form #userForm="ngForm" (ngSubmit)="addTask(userForm.value)">
     <mat-form-field color="accent" class="example-full-width first-input name">
       <mat-label>Task name</mat-label>
       <input type="text" matInput placeholder="Task name" name="taskName" [(ngModel)]="title" required>
@@ -14,10 +14,11 @@
     <mat-checkbox [(ngModel)]="completed" name="completedStatus">Completed</mat-checkbox>
     <mat-form-field color="accent" class="example-full-width">
       <mat-label>Add tags</mat-label>
-      <input type="text" matInput placeholder="New tag">
+      <input type="text" matInput placeholder="New tag" name="listOfTags" [(ngModel)]="tags" required>
     </mat-form-field>
+    <input type="save" value="Save" color="accent" class="save-button">
   </form>
-  <mat-card-actions>
-    <button mat-raised-button color="primary">Save</button>
-  </mat-card-actions>
+  <!-- <mat-card-actions>
+    <button mat-raised-button color="primary"> Save </button>
+  </mat-card-actions> -->
 </mat-card>

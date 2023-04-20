@@ -257,6 +257,26 @@ func getTeamByID(id string) (*Team, error) {
 	return nil, errors.New("team not found")
 }
 
+/* func getTeamMembers(members string) (*Team, error) {
+	for i, t := range teams {
+		if t.Members == members {
+			return &teams[i], nil
+		}
+	}
+
+	return nil, errors.New("team not found")
+} */
+
+func getTeamByName(name string) (*Team, error) {
+	for i, t := range teams {
+		if t.Name == name {
+			return &teams[i], nil
+		}
+	}
+
+	return nil, errors.New("team not found")
+}
+
 func main() {
 	/* mux := http.NewServeMux()
 	mux.HandleFunc("/plm/cors", Cors)
