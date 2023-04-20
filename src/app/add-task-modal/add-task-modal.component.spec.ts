@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
 import { AddTaskModalComponent } from './add-task-modal.component';
 
 describe('AddTaskModalComponent', () => {
@@ -8,7 +8,8 @@ describe('AddTaskModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddTaskModalComponent ]
+      declarations: [ AddTaskModalComponent],
+      imports: [FormsModule]i
     })
     .compileComponents();
 

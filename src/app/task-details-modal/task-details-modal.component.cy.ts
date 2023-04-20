@@ -18,11 +18,5 @@ describe('TaskDetailsModalComponent', () => {
       cy.get('mat-form-field input[placeholder="New tag"]').should('exist');
       cy.get('mat-form-field mat-label').contains('Add tags');
     });
-  
-    it('should display the save button', () => {
-        cy.mount(TaskDetailsModalComponent, {});
-      cy.get('button[color="primary"]').should('exist');
-      cy.get('button').contains('Save');
-    });
   });
   

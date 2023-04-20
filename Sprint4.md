@@ -23,47 +23,6 @@ they press save, a corresponding task card will appear in the list.
 # Frontend Unit Tests
 Some of the frontend tests from previous sprints were deleted to accomidate for changes made to our website. Only new frontend unit tests will be included in this document, however.
 
-### Add Task Modal Component
-1. Checks for add task modal title
-```
-    it('should display "New Task" as the modal title', () => {
-        cy.mount(AddTaskModalComponent, {});
-        cy.get('.modal-title').should('contain.text', 'New Task');
-      });
-```
-2. Tests save button
-```
-      it('should have a "Save" button', () => {
-        cy.mount(AddTaskModalComponent, {});
-        cy.get('button').should('have.text', 'Save');
-      });
-```
-3. Tests for task name input field and whether it has the correct type and placeholder
-```
-      it('should have a "Task name" input field', () => {
-        cy.mount(AddTaskModalComponent, {});
-        cy.get('[name="taskName"]').should('exist');
-        cy.get('[name="taskName"]').should('have.attr', 'type', 'text');
-        cy.get('[name="taskName"]').should('have.attr', 'placeholder', 'Task name');
-      });
-```
-4. Checks for due date input field and whether it has the correct type and placeholder
-```
-      it('should have a "Due date" input field', () => {
-        cy.mount(AddTaskModalComponent, {});
-        cy.get('[name="dueDate"]').should('exist');
-        cy.get('[name="dueDate"]').should('have.attr', 'type', 'date');
-        cy.get('[name="dueDate"]').should('have.attr', 'placeholder', 'Due date');
-      });
-```
-5. Checks for add tags input field
-```
-      it('should have an "Add tags" input field', () => {
-        cy.mount(AddTaskModalComponent, {});
-        cy.get('[placeholder="New tag"]').should('exist');
-      });
-```
-
 ### Inner Navbar Component
 1. Mounts the component with a project name passed into it and checks whether this name was displayed correctly
 (in previous sprints, this test checked whether the default "Project Name" was displayed)
@@ -147,14 +106,6 @@ Some of the frontend tests from previous sprints were deleted to accomidate for 
         cy.mount(TaskDetailsModalComponent, {});
       cy.get('mat-form-field input[placeholder="New tag"]').should('exist');
       cy.get('mat-form-field mat-label').contains('Add tags');
-    });
-```
-4. Tests the save button
-```
-    it('should display the save button', () => {
-        cy.mount(TaskDetailsModalComponent, {});
-      cy.get('button[color="primary"]').should('exist');
-      cy.get('button').contains('Save');
     });
 ```
 # Backend Unit Tests
