@@ -28,10 +28,8 @@ export class AddTaskModalComponent {
     task.title = tasks.taskName;
     task.dueDate = tasks.dueDate;
     task.tags = tasks.listOfTags;
-    console.log(task.title)
-    console.log(task.dueDate)
-    console.log(task.tags)
     
+
   }
 
   get Title() {

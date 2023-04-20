@@ -59,8 +59,7 @@ export class MainPageComponent {
     .then((myJson) => {
       for(var i in myJson)
       {
-        //console.log(myJson[i]["code"])
-        //console.log(users.code)
+        
         if(myJson[i]["code"] == person.code)
         {
           this.users.push({username: myJson[i]["username"],
