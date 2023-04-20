@@ -151,5 +151,114 @@ Some of the frontend tests from previous sprints were deleted to accomidate for 
     });
 ```
 # Backend Unit Tests
+Our backend wrote four more unit test cases that test our functions in our main.go file that contains API calls to the front-end. The first test TestGetTasksByUser gets all the tasks for the user selected. It will show which tasks the users have assigned. Our second test TestAddTasktoUser adds tasks to the user. It will only add tasks to the team code that the user has. Our third test TestAddMemberToTeamByID adds members to the team by ID. This will check if members can join specific teams through ID. Our final test TestGetUsersInTeams will identify all users in the team by ID. This will allow us to get all the members in the team.
+### 1. Unit Test: TestGetTasksByUser() function, Gets Tasks by Username
+This code defines a test function TestGetTasksByUser that tests the getTasksByUser function using a Gin router with two test cases: one with a valid username and one with an invalid username. It sends HTTP GET requests with the usernames as parameters and records the response using a test recorder.
+```func TestGetTasksByUser(t *testing.T) {
+	router := gin.New()
+	router.Use(CORSMiddleware())
+	router.GET("/users/:username/tasks", getTasksByUser)
 
+	// Test case with a valid username
+	req, _ := http.NewRequest("GET", "/users/gatoralanw/tasks", nil)
+	w := httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	// Test case with an invalid username
+	req, _ = http.NewRequest("GET", "/users/nonexistentuser/tasks", nil)
+	w = httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+}
+```
+
+### 2. Unit Test: AddTaskToUser() function, ads Tasks to Users
+Function sends valid and invalid JSON tasks to the addTaskToUser function using a Gin router and assert the expected HTTP status codes, but they are currently commented out.
+```
+func TestAddTaskToUser(t *testing.T) {
+	router := gin.New()
+	router.Use(CORSMiddleware())
+	router.POST("/users/:username/tasks", addTaskToUser)
+
+	// Test case with a valid username
+	//taskJSON := `{"title":"Test Task","dueDate":"2023-05-01","tags":["test"],"desc":"Test task description","completed":false}`
+
+	//router.ServeHTTP(w, req)
+
+	//w = httptest.NewRecorder()
+
+	//assert.Equal(t, http.StatusNotFound, w.Code)
+
+	//invalidJSON := `{"title":"Test Task","dueDate":"2023-05-01","tags":["test"],"desc":"Test task description","completed":}`
+	//req, _ = http.NewRequest("POST", "/users/gatoralanw/tasks", bytes.NewBufferString(invalidJSON))
+	//w = httptest.NewRecorder()
+
+	//router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusOK, w.Code)
+}
+```
+
+### 3. Unit Test: TestAddMemberToTeamByID() function, allows members to join Teams by specific Team ID
+This code is a test function that tests adding a member to a team by team ID and username using a Gin router, and it has three test cases: one where a member is added to a valid team ID and username, and two where the team ID or username is invalid, and it records the HTTP response code using a test recorder.
+
+```
+func TestAddMemberToTeamByID(t *testing.T) {
+	router := gin.New()
+	router.Use(CORSMiddleware())
+	router.POST("/teams/:id/members/:username", addMemberToTeamByID)
+
+	// Test case with a valid team ID and username
+	req, _ := http.NewRequest("POST", "/teams/6969/members/TossTheNoodles", nil)
+	w := httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusOK, w.Code)
+
+	// invalid ID
+	req, _ = http.NewRequest("POST", "/teams/1234/members/TossTheNoodles", nil)
+	w = httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusNotFound, w.Code)
+
+	// Invalid User
+	req, _ = http.NewRequest("POST", "/teams/6969/members/nonexistentuser", nil)
+	w = httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusNotFound, w.Code)
+}
+```
+
+### 4. Unit Test: GetUsersInTeam() function, gets all the users in the team based on ID
+This code is a test function that tests getting the users in a team by team ID using a Gin router. It has two test cases: one where a valid team ID is used to get the users in the team, and one where an invalid team ID is used to get the users, and it records the HTTP response code using a test recorder.
+
+```
+func TestGetUsersInTeam(t *testing.T) {
+	router := gin.New()
+	router.Use(CORSMiddleware())
+	router.GET("/teams/:id/members", getUsersInTeam)
+
+	// valid team ID
+	req, _ := http.NewRequest("GET", "/teams/6969/members", nil)
+	w := httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusOK, w.Code)
+
+	//invalid team ID
+	req, _ = http.NewRequest("GET", "/teams/1234/members", nil)
+	w = httptest.NewRecorder()
+
+	router.ServeHTTP(w, req)
+
+	//assert.Equal(t, http.StatusNotFound, w.Code)
+}
 # Backend API Documentation
